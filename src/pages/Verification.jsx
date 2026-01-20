@@ -1,6 +1,6 @@
 'use client'
 import "./Verification.css"
-import bg from "../assets/background-img.jpg"
+import shieldIcon from "../assets/hugeicons_security.png"
 import { useState, useRef } from "react"
 import { useNavigate } from "react-router-dom"
 
@@ -55,100 +55,84 @@ function Verification() {
 
   return (
     <div className="verification-page">
-      <div
-        className="background-image"
-        style={{ backgroundImage: `url(${bg})` }}
-      ></div>
-      <div className="overlay">
-        {/* Header */}
-        <header className="header-bar">
-          <button 
-            className="back-button"
-            onClick={() => navigate(-1)}
-            aria-label="Go back"
-          >
-            <svg className="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M15 18l-6-6 6-6"/>
-            </svg>
-          </button>
-          <h1 className="header-title">Verification</h1>
-          <div className="header-spacer"></div>
-        </header>
+      {/* Header */}
+      <header className="header-bar">
+        <button 
+          className="back-button"
+          onClick={() => navigate(-1)}
+          aria-label="Go back"
+        >
+          <svg className="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </button>
+        <h1 className="header-title">Verification</h1>
+        <div className="header-spacer"></div>
+      </header>
 
-        {/* Main Content */}
-        <main className="main-content">
-          {/* Shield Icon */}
-          <div className="shield-container">
-            <div className="shield-icon-wrapper">
-              <svg 
-                viewBox="0 0 24 24" 
-                className="shield-icon"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              >
-                <path d="M12 2L4 6v6c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V6l-8-4z" />
-                <circle cx="12" cy="10" r="2" />
-                <path d="M12 12v4" />
-              </svg>
-            </div>
+      {/* Main Content */}
+      <main className="main-content">
+        {/* Shield Icon */}
+        <div className="shield-container">
+          <div className="shield-icon-wrapper">
+            <img src={shieldIcon} alt="Security shield" className="shield-icon" />
           </div>
-
-          {/* Title and Subtitle */}
-          <h2 className="main-title">
-            Verification Code Sent!
-          </h2>
-          <p className="subtitle">
-            We have sent the verification code to your mobile number
-          </p>
-
-          {/* OTP Input */}
-          <div className="otp-container" onPaste={handlePaste}>
-            {otp.map((digit, index) => (
-              <input
-                key={index}
-                ref={(el) => {
-                  inputRefs.current[index] = el
-                }}
-                type="text"
-                inputMode="numeric"
-                maxLength={1}
-                value={digit}
-                onChange={(e) => handleChange(index, e.target.value)}
-                onKeyDown={(e) => handleKeyDown(index, e)}
-                className="otp-input"
-                aria-label={`Digit ${index + 1}`}
-              />
-            ))}
-          </div>
-
-          {/* Divider */}
-          <div className="divider"></div>
-
-          {/* Buttons */}
-          <div className="buttons-container">
-            <button
-              type="button"
-              onClick={handleSendAgain}
-              className="send-again-button"
-            >
-              Send Again
-            </button>
-            <button
-              type="button"
-              onClick={handleSubmit}
-              disabled={otp.some((digit) => !digit)}
-              className="submit-button"
-            >
-              Submit
-            </button>
-          </div>
-        </main>
-
-        {/* Home Indicator */}
-        <div className="home-indicator">
-          <div className="indicator-bar"></div>
         </div>
+
+        {/* Title and Subtitle */}
+        <h2 className="main-title">
+          Verification Code Sent!
+        </h2>
+        <p className="subtitle">
+          We have sent the verification code to your mobile number
+        </p>
+
+        {/* OTP Input */}
+        <div className="otp-container" onPaste={handlePaste}>
+          {otp.map((digit, index) => (
+            <input
+              key={index}
+              ref={(el) => {
+                inputRefs.current[index] = el
+              }}
+              type="text"
+              inputMode="numeric"
+              maxLength={1}
+              value={digit}
+              onChange={(e) => handleChange(index, e.target.value)}
+              onKeyDown={(e) => handleKeyDown(index, e)}
+              className="otp-input"
+              aria-label={`Digit ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Divider */}
+        <div className="divider"></div>
+
+        {/* Buttons */}
+        <div className="buttons-container">
+          <button
+            type="button"
+            onClick={handleSendAgain}
+            className="send-again-button"
+          >
+            Send Again
+          </button>
+          <button
+            type="button"
+            onClick={handleSubmit}
+            disabled={otp.some((digit) => !digit)}
+            className="submit-button"
+          >
+            Submit
+          </button>
+        </div>
+      </main>
+
+      {/* Home Indicator */}
+      <div className="home-indicator">
+        <div className="indicator-bar"></div>
       </div>
     </div>
   )
