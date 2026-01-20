@@ -3,9 +3,20 @@
 import "./Welcome.css"
 import bg from "../assets/cup.jpg"
 import { useNavigate } from "react-router-dom"
+import { useState, useEffect } from "react"
+import AlmostThereModal from "../components/AlmostThereModal"
 
 function Welcome() {
   const navigate = useNavigate()
+  const [showModal, setShowModal] = useState(false)
+
+  // Show modal automatically on page load (for testing)
+  useEffect(() => {
+    const dontShow = localStorage.getItem("dontShowAlmostThere")
+    if (!dontShow) {
+      setShowModal(true)
+    }
+  }, [])
 
   return (
     <div className="welcome-page">
@@ -53,7 +64,7 @@ function Welcome() {
           <button 
             className="continue-button" 
             type="button"
-            onClick={() => navigate("/single-barrel")}
+            onClick={() => setShowModal(true)}
           >
             Continue
           </button>
@@ -63,6 +74,14 @@ function Welcome() {
           <div className="indicator-bar" />
         </div>
       </main>
+
+      <AlmostThereModal 
+        isOpen={showModal} 
+        onClose={() => {
+          setShowModal(false)
+          navigate("/single-barrel")
+        }} 
+      />
     </div>
   )
 }
