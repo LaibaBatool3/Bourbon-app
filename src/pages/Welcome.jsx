@@ -1,4 +1,3 @@
-
 'use client'
 
 import "./Welcome.css"
@@ -52,11 +51,11 @@ function Welcome() {
           </p>
 
           <button 
-            className="join-button" 
+            className="continue-button" 
             type="button"
             onClick={() => navigate("/single-barrel")}
           >
-            Join the club
+            Continue
           </button>
         </section>
 
