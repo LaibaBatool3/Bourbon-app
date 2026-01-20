@@ -1,0 +1,357 @@
+.signup-page {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(3px);
+  transform: scale(1.1);
+  z-index: 1;
+}
+
+
+.overlay {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 2;
+  padding: 60px 24px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+
+.content-container {
+  width: 100%;
+  max-width: calc(100% - 262px); 
+  margin: 0 131px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  z-index: 3;
+  margin-top: 40px;
+}
+
+
+.logo-top {
+  width: 218px;
+  height: 218px;
+  object-fit: contain;
+  margin-bottom: 24px;
+}
+
+
+.heading {
+  color: white;
+  font-family: "Bitter", serif;
+  font-weight: 500;
+  font-size: 28px;
+  text-align: center;
+  margin: 0 0 12px;
+  width: 100%;
+}
+
+
+.description {
+  color: #d9d9d9;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 140%;
+  text-align: center;
+  margin: 0 0 24px;
+}
+
+
+
+
+.signup-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+
+.progress-indicator-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start; 
+  margin-bottom: 8px;
+}
+
+
+.progress-indicator {
+  color: #d9d9d9;
+  font-family: "Work Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  margin: 0; 
+}
+
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+
+.form-group label {
+  color: #d9d9d9;
+  font-family: "Work Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid white;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: white;
+  font-size: 16px;
+  font-family: "Work Sans", sans-serif;
+  outline: none;
+  box-sizing: border-box;
+  backdrop-filter: blur(10px);
+}
+
+
+.form-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+
+.form-input:focus {
+  border-color: rgba(170, 148, 86, 0.8);
+  box-shadow: 0 0 0 2px rgba(170, 148, 86, 0.2);
+}
+
+
+.primary-button {
+  width: 100%;
+  padding: 16px;
+  background-color: #aa9456;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: "Work Sans", sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 4px;
+}
+
+
+.primary-button:hover {
+  background-color: #988146;
+}
+
+
+.primary-button:active {
+  background-color: #867038;
+}
+
+
+.divider {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 8px 0 16px;
+  position: relative;
+}
+
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+
+.divider-text {
+  color: #D9D9D9;
+  font-family: "Work Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  padding: 0 16px;
+  background: transparent;
+}
+
+
+.social-login {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+}
+
+
+.social-button {
+  flex: 1;
+  padding: 12px 16px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Work Sans", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+
+.social-button:hover {
+  background-color: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+
+.social-button:active {
+  background-color: rgba(255, 255, 255, 0.22);
+}
+
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+}
+
+
+.apple-icon {
+  width: 20px;
+  height: 20px;
+  color: white;
+}
+
+
+.footer-link {
+  width: 100%;
+  text-align: center;
+  color: #D9D9D9;
+  font-family: "Work Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 8px;
+}
+
+
+.log-in {
+  color: white;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .overlay {
+    padding: 40px 40px 60px;
+    align-items: flex-start;
+  }
+
+
+  .content-container {
+    max-width: calc(100% - 262px);
+    margin: 0 131px;
+    margin-top: 20px;
+  }
+
+
+  .logo-top {
+    width: 218px;
+    height: 218px;
+    margin-bottom: 32px;
+  }
+
+
+  .heading {
+    font-size: 32px;
+  }
+
+
+  .description {
+    font-size: 18px;
+    margin: 0 0 32px;
+  }
+ 
+  .progress-indicator {
+    font-size: 15px;
+  }
+}
+
+
+@media (max-width: 767px) {
+  .overlay {
+    padding: 40px 24px 40px;
+    align-items: flex-start;
+  }
+
+
+  .content-container {
+    max-width: 100%;
+    margin: 0 24px;
+    margin-top: 20px;
+  }
+
+
+  .logo-top {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 20px;
+  }
+ 
+  .progress-indicator-container {
+    margin-bottom: 6px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .overlay {
+    padding: 30px 16px 30px;
+  }
+
+
+  .content-container {
+    margin: 0 16px;
+    margin-top: 15px;
+  }
+
+
+  .logo-top {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 16px;
+  }
+ 
+  .progress-indicator {
+    font-size: 13px;
+  }
+}

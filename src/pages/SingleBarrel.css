@@ -1,0 +1,454 @@
+.single-barrel-page {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.single-barrel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #000000;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: opacity 0.3s ease;
+}
+
+.back-button:hover {
+  opacity: 0.7;
+}
+
+.chevron-icon {
+  width: 24px;
+  height: 24px;
+  color: white;
+}
+
+.header-title {
+  color: white;
+  font-family: "Work Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+  text-align: center;
+  flex: 1;
+}
+
+.header-spacer {
+  width: 24px;
+}
+
+.single-barrel-main {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 100px;
+  box-sizing: border-box;
+}
+
+.progress-card {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.progress-title {
+  color: white;
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.progress-bar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.progress-bar-track {
+  width: 100%;
+  height: 8px;
+  background-color: #2a2a2a;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #3a3a3a;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.progress-marker {
+  position: absolute;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background-color: white;
+  transform: translateX(-50%);
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: "Work Sans", sans-serif;
+  font-size: 12px;
+}
+
+.progress-count {
+  color: white;
+  font-family: "Work Sans", sans-serif;
+  font-size: 14px;
+  text-align: right;
+  margin-top: -8px;
+}
+
+/* Bourbons Section */
+.bourbons-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bourbons-title {
+  color: white;
+  font-family: "Work Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.bourbons-description {
+  color: rgba(255, 255, 255, 0.7);
+  font-family: "Work Sans", sans-serif;
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.bourbons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.bourbon-item {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: background-color 0.2s ease;
+}
+
+.bourbon-item:hover {
+  background-color: #222222;
+}
+
+.bourbon-image-container {
+  flex-shrink: 0;
+}
+
+.bourbon-image-placeholder {
+  width: 60px;
+  height: 60px;
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: "Work Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.bourbon-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bourbon-name-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bourbon-name {
+  color: white;
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.wom-tag {
+  background-color: #AA9456;
+  color: white;
+  font-family: "Work Sans", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.bourbon-profile-link {
+  color: rgba(255, 255, 255, 0.6);
+  font-family: "Work Sans", sans-serif;
+  font-size: 12px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s ease;
+}
+
+.bourbon-profile-link:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.bourbon-checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.yellow-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #FFD700;
+  border-radius: 50%;
+}
+
+.bourbon-checkbox {
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.bourbon-checkbox.checked {
+  background-color: white;
+  border-color: white;
+}
+
+.checkmark {
+  width: 16px;
+  height: 16px;
+  color: #000000;
+  stroke-width: 3;
+}
+
+/* Confirm Button */
+.confirm-button {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 18px 20px;
+  background-color: #AA9456;
+  color: white;
+  border: none;
+  border-radius: 0;
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 5;
+  box-sizing: border-box;
+}
+
+.confirm-button:hover {
+  background-color: #988146;
+}
+
+.confirm-button:active {
+  background-color: #867038;
+}
+
+/* Home Indicator */
+.home-indicator {
+  display: flex;
+  justify-content: center;
+  padding: 8px 0 16px;
+  background-color: #000000;
+  position: relative;
+  z-index: 1;
+}
+
+.indicator-bar {
+  width: 128px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 2px;
+}
+
+/* Mobile Responsive (430px width) */
+@media (max-width: 430px) {
+  .single-barrel-main {
+    padding: 16px;
+    gap: 16px;
+    padding-bottom: 90px;
+  }
+
+  .progress-card {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .bourbon-item {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .bourbon-image-placeholder {
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+  }
+
+  .bourbon-name {
+    font-size: 14px;
+  }
+
+  .confirm-button {
+    padding: 16px;
+    font-size: 14px;
+  }
+}
+
+/* iPad Responsive (834px width) */
+@media (min-width: 768px) and (max-width: 834px) {
+  .single-barrel-page {
+    max-width: 834px;
+    margin: 0 auto;
+  }
+
+  .single-barrel-header {
+    padding: 20px 40px;
+  }
+
+  .header-title {
+    font-size: 20px;
+  }
+
+  .single-barrel-main {
+    padding: 32px 40px;
+    padding-bottom: 120px;
+    gap: 24px;
+  }
+
+  .progress-card {
+    padding: 24px;
+    gap: 20px;
+  }
+
+  .progress-title {
+    font-size: 18px;
+  }
+
+  .bourbons-title {
+    font-size: 24px;
+  }
+
+  .bourbons-description {
+    font-size: 16px;
+  }
+
+  .bourbons-list {
+    gap: 16px;
+  }
+
+  .bourbon-item {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .bourbon-image-placeholder {
+    width: 80px;
+    height: 80px;
+    font-size: 24px;
+  }
+
+  .bourbon-name {
+    font-size: 18px;
+  }
+
+  .bourbon-profile-link {
+    font-size: 14px;
+  }
+
+  .bourbon-checkbox {
+    width: 28px;
+    height: 28px;
+  }
+
+  .checkmark {
+    width: 18px;
+    height: 18px;
+  }
+
+  .confirm-button {
+    padding: 20px 40px;
+    font-size: 18px;
+    max-width: 834px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Larger iPad/Desktop */
+@media (min-width: 835px) {
+  .single-barrel-page {
+    max-width: 834px;
+    margin: 0 auto;
+  }
+}
