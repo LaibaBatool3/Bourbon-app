@@ -8,7 +8,7 @@ function Dashboard() {
 
   const handleLogin = (e) => {
     e.preventDefault()
-  
+    navigate("/verification")
   }
 
   const handleGoogleLogin = () => {

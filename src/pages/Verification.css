@@ -1,5 +1,5 @@
 .verification-page {
-  min-height: 100vh;
+  height: 100vh;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -16,6 +16,7 @@
   width: 100%;
   box-sizing: border-box;
   background-color: #000000;
+  flex-shrink: 0;
 }
 
 .back-button {
@@ -45,12 +46,13 @@
   font-family: "Bitter", serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 20px;
+  font-size: 25px;
   line-height: 100%;
   letter-spacing: 0%;
   margin: 0;
   text-align: center;
   flex: 1;
+  text-transform: none;
 }
 
 .header-spacer {
@@ -65,17 +67,19 @@
   justify-content: center;
   padding: 0 24px;
   box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 0;
 }
 
 .shield-container {
-  margin-bottom: 32px;
+  margin-bottom: 24px;
+  flex-shrink: 0;
 }
 
 .shield-icon-wrapper {
   width: 96px;
   height: 96px;
-  border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.8);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,8 +87,8 @@
 }
 
 .shield-icon {
-  width: 48px;
-  height: 48px;
+  width: 96px;
+  height: 96px;
   object-fit: contain;
   filter: brightness(0) invert(1);
 }
@@ -99,6 +103,7 @@
   letter-spacing: 0%;
   text-align: center;
   margin: 0 0 12px;
+  flex-shrink: 0;
 }
 
 .subtitle {
@@ -110,20 +115,23 @@
   line-height: 100%;
   letter-spacing: 0%;
   text-align: center;
-  margin: 0 0 32px;
+  margin: 0 0 24px;
+  flex-shrink: 0;
 }
 
 .otp-container {
   display: flex;
-  gap: 16px;
+  gap: 12px;
   justify-content: center;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   width: 100%;
   max-width: 400px;
+  flex-shrink: 0;
 }
 
 .otp-input {
-  width: 64px;
+  flex: 1;
+  max-width: 64px;
   height: 64px;
   padding: 0;
   border: 1px solid rgba(255, 255, 255, 0.4);
@@ -150,7 +158,8 @@
   max-width: 400px;
   height: 1px;
   background: rgba(255, 255, 255, 0.2);
-  margin-bottom: 24px;
+  margin-bottom: 16px;
+  flex-shrink: 0;
 }
 
 .buttons-container {
@@ -159,21 +168,27 @@
   gap: 12px;
   width: 100%;
   max-width: 400px;
+  flex-shrink: 0;
+  margin-bottom: 16px;
 }
 
 .send-again-button {
   width: 100%;
-  padding: 16px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  padding: 14px;
+  background-color: transparent;
+  border: 1px solid #AA9456;
   border-radius: 12px;
   color: white;
   font-family: "Work Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 0%;
   cursor: pointer;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(8px);
+  box-sizing: border-box;
 }
 
 .send-again-button:hover {
@@ -187,16 +202,20 @@
 
 .submit-button {
   width: 100%;
-  padding: 16px;
+  padding: 14px;
   background-color: #AA9456;
   border: none;
   border-radius: 12px;
   color: white;
   font-family: "Work Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 0%;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  box-sizing: border-box;
 }
 
 .submit-button:hover {
@@ -215,8 +234,9 @@
 .home-indicator {
   display: flex;
   justify-content: center;
-  padding: 8px 0 16px;
+  padding: 8px 0;
   background-color: #000000;
+  flex-shrink: 0;
 }
 
 .indicator-bar {
@@ -226,100 +246,268 @@
   border-radius: 2px;
 }
 
-/* Mobile Responsive (430px width) */
+/* Mobile - <= 430px */
 @media (max-width: 430px) {
   .verification-page {
-    min-height: 932px;
+    height: 100vh;
+    overflow: hidden;
   }
 
   .header-bar {
-    padding: 14px 16px;
+    padding: 12px 16px;
   }
 
   .header-title {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .main-content {
-    padding: 0 20px;
+    padding: 0 16px;
+    justify-content: center;
   }
 
   .shield-container {
-    margin-bottom: 28px;
+    margin-bottom: 16px;
   }
 
   .shield-icon-wrapper {
-    width: 80px;
-    height: 80px;
+    width: 64px;
+    height: 64px;
   }
 
   .shield-icon {
-    width: 40px;
-    height: 40px;
+    width: 64px;
+    height: 64px;
   }
 
   .main-title {
-    font-size: 22px;
-    margin-bottom: 10px;
+    font-size: 20px;
+    margin-bottom: 8px;
   }
 
   .subtitle {
-    font-size: 15px;
-    margin-bottom: 28px;
+    font-size: 14px;
+    margin-bottom: 16px;
   }
 
   .otp-container {
-    gap: 12px;
-    margin-bottom: 20px;
+    gap: 8px;
+    margin-bottom: 16px;
+    max-width: 100%;
   }
 
   .otp-input {
-    width: 56px;
+    max-width: 56px;
     height: 56px;
     font-size: 20px;
   }
 
   .divider {
-    margin-bottom: 20px;
+    margin-bottom: 12px;
   }
 
   .buttons-container {
     gap: 10px;
+    margin-bottom: 12px;
   }
 
-  .send-again-button,
+  .send-again-button {
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: white;
+  }
+
   .submit-button {
-    padding: 14px;
-    font-size: 15px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: white;
   }
 
   .home-indicator {
-    padding: 6px 0 12px;
+    padding: 4px 0;
   }
 }
 
-/* iPad Responsive (834px width) */
+/* Extra small mobile - <= 375px */
+@media (max-width: 375px) {
+  .shield-icon-wrapper {
+    width: 56px;
+    height: 56px;
+  }
+
+  .shield-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .main-title {
+    font-size: 18px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .otp-input {
+    max-width: 50px;
+    height: 50px;
+    font-size: 18px;
+  }
+}
+
+/* iPad Portrait - 768px to 834px */
 @media (min-width: 768px) and (max-width: 834px) {
   .verification-page {
-    min-height: 1194px;
+    height: 100vh;
+    overflow: hidden;
     max-width: 834px;
     margin: 0 auto;
   }
 
   .header-bar {
-    padding: 24px 40px;
+    width: 770px;
+    height: 48px;
+    padding: 4px 8px;
+    margin: 0 auto;
+    margin-left: 32px;
+    border-radius: 8px;
+    justify-content: space-between;
+    box-sizing: border-box;
   }
 
   .header-title {
+    font-size: 25px;
+  }
+
+  .main-content {
+    padding: 0;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 32px;
+  }
+
+  .shield-container {
+    margin-bottom: 32px;
+    margin-top: 0;
+  }
+
+  .shield-icon-wrapper {
+    width: 140px;
+    height: 128px;
+  }
+
+  .shield-icon {
+    width: 140px;
+    height: 128px;
+  }
+
+  .main-title {
+    font-family: "Bitter", serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 0 0 16px;
+  }
+
+  .subtitle {
+    font-size: 17px;
+    margin-bottom: 24px;
+  }
+
+  .otp-container {
+    width: 572px;
+    height: 80.44px;
+    gap: 12px;
+    margin: 0 auto 23.56px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .otp-input {
+    width: 134px;
+    height: 80.44px;
+    padding: 10px;
+    border-radius: 16px;
+    border: 1px solid #B3B3B3;
+    font-size: 24px;
+    box-sizing: border-box;
+    max-width: 134px;
+  }
+
+  .divider {
+    width: 572px;
+    max-width: 572px;
+    margin: 0 auto 32px;
+  }
+
+  .buttons-container {
+    width: 572px;
+    max-width: 572px;
+    gap: 32px;
+    margin: 0 auto;
+  }
+
+  .send-again-button {
+    padding: 16px;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    border: 1px solid #AA9456;
+  }
+
+  .submit-button {
+    padding: 16px;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: white;
+  }
+
+  .home-indicator {
+    padding: 8px 0;
+  }
+}
+
+/* Desktop - >= 1024px */
+@media (min-width: 1024px) {
+  .verification-page {
+    height: 100vh;
+    overflow: hidden;
+    max-width: 834px;
+    margin: 0 auto;
+  }
+
+  .header-bar {
+    padding: 16px 40px;
+  }
+
+  .header-title {
+    font-size: 25px;
   }
 
   .main-content {
     padding: 0 60px;
+    justify-content: center;
   }
 
   .shield-container {
-    margin-bottom: 40px;
+    margin-bottom: 32px;
   }
 
   .shield-icon-wrapper {
@@ -328,8 +516,8 @@
   }
 
   .shield-icon {
-    width: 60px;
-    height: 60px;
+    width: 120px;
+    height: 120px;
   }
 
   .main-title {
@@ -339,46 +527,47 @@
 
   .subtitle {
     font-size: 17px;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
   }
 
   .otp-container {
-    gap: 20px;
-    margin-bottom: 32px;
+    gap: 16px;
+    margin-bottom: 24px;
     max-width: 500px;
   }
 
   .otp-input {
-    width: 80px;
+    max-width: 80px;
     height: 80px;
     font-size: 28px;
   }
 
   .divider {
     max-width: 500px;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
   }
 
   .buttons-container {
     max-width: 500px;
     gap: 16px;
+    margin-bottom: 16px;
   }
 
-  .send-again-button,
+  .send-again-button {
+    padding: 16px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: white;
+  }
+
   .submit-button {
-    padding: 20px;
-    font-size: 18px;
-  }
-
-  .home-indicator {
-    padding: 12px 0 20px;
-  }
-}
-
-/* Larger iPad/Desktop */
-@media (min-width: 835px) {
-  .verification-page {
-    max-width: 834px;
-    margin: 0 auto;
+    padding: 16px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: white;
   }
 }

@@ -236,7 +236,7 @@
 .register-button {
   background: none;
   border: none;
-  color: #AA9456;
+  color: white;
   font-family: "Work Sans", sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -245,14 +245,16 @@
   padding: 0;
   margin: 0;
   transition: color 0.3s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .register-button:hover {
-  color: #988146;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .register-button:active {
-  color: #867038;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 /* Mobile - <= 430px */
