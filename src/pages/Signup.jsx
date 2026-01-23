@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom"
 function Signup() {
   const navigate = useNavigate()
 
-
+  
   const handleSubmit = (e) => {
     e.preventDefault()
     navigate("/membership")
@@ -22,7 +22,6 @@ function Signup() {
   const handleApple = () => {
     
   }
-
 
   const handleLogin = () => {
     navigate("/dashboard")

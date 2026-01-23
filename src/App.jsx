@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard"
 import Verification from "./pages/Verification"
 import Welcome from "./pages/Welcome"
 import SingleBarrel from "./pages/SingleBarrel"
+import BourbonProfile from "./pages/BourbonProfile"
 
 
 function App() {
@@ -18,7 +19,8 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/verification" element={<Verification />} />
         <Route path="/welcome" element={<Welcome />} />
-         <Route path="/single-barrel" element={<SingleBarrel />} />
+        <Route path="/single-barrel" element={<SingleBarrel />} />
+        <Route path="/bourbon-profile" element={<BourbonProfile />} />
       </Routes>
     </BrowserRouter>
   )

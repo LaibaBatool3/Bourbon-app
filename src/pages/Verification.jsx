@@ -15,7 +15,7 @@ function Verification() {
     const newOtp = [...otp]
     newOtp[index] = value.slice(-1)
     setOtp(newOtp)
-
+    
     if (value && index < 3) {
       inputRefs.current[index + 1]?.focus()
     }
@@ -83,6 +83,7 @@ function Verification() {
         <h2 className="main-title">
           Verification Code Sent!
         </h2>
+
         <p className="subtitle">
           We have sent the verification code to your mobile number
         </p>
