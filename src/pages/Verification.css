@@ -486,7 +486,7 @@
   .main-content {
     padding: 0;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     padding-top: 32px;
     flex: 1;
     overflow-y: auto;
@@ -497,6 +497,7 @@
   .shield-container {
     margin-bottom: 32px;
     margin-top: 0;
+    padding-top: 0;
     display: flex;
     justify-content: center;
   }

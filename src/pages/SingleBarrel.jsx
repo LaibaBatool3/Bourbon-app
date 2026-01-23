@@ -142,6 +142,7 @@ function SingleBarrel() {
         <div className="indicator-bar"></div>
       </div>
     </div>
+  
   )
 }
 
