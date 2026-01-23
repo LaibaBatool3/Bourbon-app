@@ -255,13 +255,121 @@
   color: #867038;
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+/* Mobile - <= 430px */
+@media (max-width: 430px) {
+  .dashboard-page {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
   .overlay {
-    padding: 80px 40px 60px;
+    padding: 24px 16px;
+    align-items: flex-start;
+    justify-content: center;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  .content-container {
+    max-width: 398px;
+    width: 100%;
+    padding: 0;
+    gap: 24px;
+  }
+
+  .logo-top {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+  }
+
+  .heading {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .description {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .login-form {
+    gap: 16px;
+  }
+
+  .form-group {
+    gap: 8px;
+  }
+
+  .form-input {
+    padding: 12px 16px;
+    font-size: 15px;
+  }
+
+  .login-button {
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  .divider {
+    margin: 20px 0;
+  }
+
+  .social-button {
+    padding: 12px 16px;
+    font-size: 15px;
+  }
+
+  .register-link {
+    font-size: 13px;
+  }
+
+  .register-button {
+    font-size: 13px;
+  }
+}
+
+/* Extra small mobile - <= 375px */
+@media (max-width: 375px) {
+  .logo-top {
+    width: 120px;
+    height: 120px;
+  }
+
+  .heading {
+    font-size: 22px;
+  }
+
+  .description {
+    font-size: 13px;
+  }
+
+  .form-input {
+    padding: 11px 14px;
+    font-size: 14px;
+  }
+
+  .login-button {
+    padding: 13px;
+    font-size: 15px;
+  }
+}
+
+/* iPad Portrait - 768px to 834px */
+@media (min-width: 768px) and (max-width: 834px) {
+  .overlay {
+    padding: 24px 131px;
+    align-items: flex-start;
+    justify-content: center;
+    overflow-x: hidden;
+    min-height: 100vh;
   }
   
   .content-container {
     max-width: 550px;
+    width: 100%;
+    padding: 0;
+    gap: 24px;
   }
   
   .logo-top {
@@ -300,6 +408,64 @@
   }
   
   .register-button {
+    font-size: 16px;
+  }
+}
+
+/* Desktop - >= 1024px */
+@media (min-width: 1024px) {
+  .dashboard-page {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .overlay {
+    height: 100vh;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .content-container {
+    max-width: 500px;
+    width: 100%;
+    padding: 0;
+    gap: 24px;
+    height: auto;
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .logo-top {
+    width: 218px;
+    height: 218px;
+    margin-bottom: 24px;
+  }
+
+  .heading {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+
+  .description {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+
+  .form-input {
+    padding: 12px 16px;
+    font-size: 16px;
+  }
+
+  .login-button {
+    padding: 16px;
+    font-size: 18px;
+  }
+
+  .social-button {
+    padding: 12px 16px;
     font-size: 16px;
   }
 }

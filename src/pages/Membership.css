@@ -1,10 +1,14 @@
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
 .membership-page {
   min-height: 100vh;
   width: 100%;
   position: relative;
-  overflow-y: auto;
   overflow-x: hidden;
-  display: block;
+  overflow-y: auto;
 }
 
 .background-image {
@@ -16,103 +20,100 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: blur(3px);
-  transform: scale(1.1);
   z-index: 1;
+  object-fit: cover;
 }
 
 .overlay {
   position: relative;
   min-height: 100vh;
   width: 100%;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.3);
   z-index: 2;
-  padding: 60px 20px 40px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  overflow: visible;
+  overflow-x: hidden;
+  padding: 0;
 }
 
 .content-container {
   width: 100%;
-  max-width: 600px;
+  max-width: 398px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  gap: 0;
-  padding-top: 20px;
+  gap: 32px;
   position: relative;
   z-index: 3;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 24px 16px 144px;
 }
 
 .logo-top {
-  width: 178px;
-  height: 178px;
-  opacity: 1;
+  width: 180px;
+  height: 180px;
   object-fit: contain;
-  margin-bottom: 40px;
-  display: block;
-  visibility: visible;
-}
-
-.logo {
-  width: 178px;
-  height: 178px;
-  opacity: 1;
-  object-fit: contain;
-  margin-bottom: 30px;
+  margin: 0;
+  flex-shrink: 0;
+  transform: scale(1.8);
 }
 
 .heading {
-  color: white;
+  color: #FFFFFF;
   font-family: "Bitter", serif;
   font-weight: 500;
-  font-size: 32px;
+  font-size: 26px;
+  text-align: center;
+  margin: 0;
+  width: 100%;
   line-height: 100%;
   letter-spacing: 0%;
-  text-align: center;
-  margin: 0 0 24px;
-  width: 100%;
+  flex-shrink: 0;
 }
 
 .description {
   color: #D9D9D9;
   font-family: "Work Sans", sans-serif;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 100%;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 17px;
+  line-height: 140%;
   letter-spacing: 0%;
-  text-align: center;
-  margin: 0 0 32px;
-  max-width: 500px;
+  text-align: left;
+  margin: 0;
   width: 100%;
+  flex-shrink: 0;
 }
 
 .membership-form {
   width: 100%;
-  max-width: 500px;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
+  gap: 14px;
   align-items: stretch;
-  gap: 20px;
+  flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 .progress-indicator {
   color: #D9D9D9;
   font-family: "Work Sans", sans-serif;
   font-size: 14px;
-  text-align: right;
-  margin-bottom: 8px;
+  font-weight: 400;
+  text-align: left;
+  margin: 0;
+  width: auto;
+  align-self: flex-start;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   width: 100%;
-  align-items: flex-start;
 }
 
 .form-group label {
@@ -124,36 +125,52 @@
 
 .form-input {
   width: 100%;
-  padding: 12px 16px;
+  height: 56px;
+  padding: 16px;
   border: 1px solid white;
-  border-radius: 8px;
-  background-color: transparent;
-  color: #D9D9D9;
+  border-radius: 16px;
+  background-color: transparent !important;
+  background: transparent !important;
+  color: white;
   font-size: 16px;
   font-family: "Work Sans", sans-serif;
   outline: none;
+  box-sizing: border-box;
 }
 
 .form-input::placeholder {
-  color: rgba(217, 217, 217, 0.6);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .form-input:focus {
-  border-color: rgba(255, 255, 255, 0.8);
+  border-color: white;
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+.form-input:-webkit-autofill,
+.form-input:-webkit-autofill:hover,
+.form-input:-webkit-autofill:focus,
+.form-input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+  -webkit-text-fill-color: white !important;
+  background-color: transparent !important;
+  background: transparent !important;
 }
 
 .join-button {
   width: 100%;
-  padding: 16px;
+  padding: 14px;
   background-color: #AA9456;
   color: white;
   border: none;
   border-radius: 8px;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
+  font-family: "Work Sans", sans-serif;
   cursor: pointer;
-  margin-top: 8px;
   transition: background-color 0.3s ease;
+  margin: 0;
 }
 
 .join-button:hover {
@@ -164,3 +181,296 @@
   background-color: #867038;
 }
 
+/* Mobile - <= 430px (Primary) */
+@media (max-width: 430px) {
+  .membership-page {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .background-image {
+    background-size: cover;
+    background-position: center;
+  }
+
+  .overlay {
+    padding: 0;
+    align-items: flex-start;
+    justify-content: center;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  .content-container {
+    max-width: 398px;
+    width: 100%;
+    padding: 24px 16px 144px;
+    gap: 32px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  .logo-top {
+    width: 150px;
+    height: 150px;
+    transform: scale(1.8);
+  }
+
+  .heading {
+    font-size: 22px;
+    line-height: 100%;
+    letter-spacing: 0%;
+  }
+
+  .description {
+    font-size: 14px;
+    line-height: 140%;
+    letter-spacing: 0%;
+    text-align: left;
+  }
+
+  .progress-indicator {
+    font-size: 13px;
+    text-align: left;
+    align-self: flex-start;
+  }
+
+  .membership-form {
+    gap: 12px;
+  }
+
+  .form-group {
+    gap: 10px;
+  }
+
+  .form-group label {
+    font-size: 13px;
+  }
+
+  .form-input {
+    width: 100%;
+    height: 56px;
+    padding: 16px;
+    border-radius: 16px;
+    border-width: 1px;
+    font-size: 15px;
+    color: white;
+  }
+
+  .form-input::placeholder {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .join-button {
+    padding: 13px;
+    font-size: 16px;
+  }
+}
+
+/* Extra small mobile - <= 375px */
+@media (max-width: 375px) {
+  .content-container {
+    padding: 24px 16px 144px;
+    gap: 28px;
+  }
+
+  .logo-top {
+    width: 120px;
+    height: 120px;
+    transform: scale(1.8);
+  }
+
+  .heading {
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+  }
+
+  .description {
+    font-size: 13px;
+    line-height: 140%;
+    letter-spacing: 0%;
+    text-align: left;
+  }
+
+  .progress-indicator {
+    text-align: left;
+    align-self: flex-start;
+  }
+
+  .form-input {
+    width: 100%;
+    height: 56px;
+    padding: 16px;
+    border-radius: 16px;
+    border-width: 1px;
+    font-size: 14px;
+    color: white;
+  }
+
+  .form-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .join-button {
+    padding: 13px;
+    font-size: 15px;
+  }
+}
+
+/* iPad Portrait - 768px to 834px */
+@media (min-width: 768px) and (max-width: 834px) {
+  .membership-page {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .background-image {
+    background-size: cover;
+    background-position: center;
+  }
+
+  .overlay {
+    padding: 24px 131px;
+    align-items: flex-start;
+    justify-content: center;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  .content-container {
+    max-width: 398px;
+    width: 100%;
+    padding: 24px 0;
+    gap: 32px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  .logo-top {
+    width: 200px;
+    height: 200px;
+    transform: scale(1.8);
+  }
+
+  .heading {
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: 0%;
+  }
+
+  .description {
+    font-size: 17px;
+    line-height: 140%;
+    letter-spacing: 0%;
+    text-align: left;
+  }
+
+  .progress-indicator {
+    font-size: 15px;
+    text-align: left;
+    align-self: flex-start;
+  }
+
+  .membership-form {
+    gap: 14px;
+  }
+
+  .form-group label {
+    font-size: 14px;
+  }
+
+  .form-input {
+    width: 100%;
+    max-width: 572px;
+    height: 64px;
+    padding: 16px;
+    border-radius: 16px;
+    border-width: 1px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+
+  .join-button {
+    padding: 14px;
+    font-size: 17px;
+  }
+}
+
+/* Desktop - >= 1024px */
+@media (min-width: 1024px) {
+  .membership-page {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .overlay {
+    height: 100vh;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .content-container {
+    max-width: 398px;
+    width: 100%;
+    padding: 24px 16px;
+    gap: 32px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    height: auto;
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .logo-top {
+    width: 200px;
+    height: 200px;
+    transform: scale(1.8);
+  }
+
+  .heading {
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: 0%;
+  }
+
+  .description {
+    font-size: 17px;
+    line-height: 140%;
+    letter-spacing: 0%;
+    text-align: left;
+  }
+
+  .progress-indicator {
+    font-size: 15px;
+    text-align: left;
+    align-self: flex-start;
+  }
+
+  .membership-form {
+    gap: 14px;
+  }
+
+  .form-group label {
+    font-size: 14px;
+  }
+
+  .form-input {
+    width: 100%;
+    height: 56px;
+    padding: 16px;
+    border-radius: 16px;
+    border-width: 1px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+
+  .join-button {
+    padding: 14px;
+    font-size: 17px;
+  }
+}

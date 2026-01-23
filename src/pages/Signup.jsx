@@ -43,8 +43,8 @@ function Signup() {
 
 
           <p className="description">
-            The curated journey into the finest bourbons starts now. The next
-            level of taste is here.
+            Your curated journey into the finest whiskey's.<br />
+            Brought to you by The Twisted Tail
           </p>
 
 
