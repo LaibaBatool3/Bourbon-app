@@ -85,7 +85,8 @@ function Verification() {
         </h2>
 
         <p className="subtitle">
-          We have sent the verification code to your mobile number
+          We have sent the verification code to your<br />
+          mobile number
         </p>
 
         {/* OTP Input */}

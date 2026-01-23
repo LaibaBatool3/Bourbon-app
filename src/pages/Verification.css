@@ -251,23 +251,162 @@
   .verification-page {
     height: 100vh;
     overflow: hidden;
+    position: relative;
+    padding-top: 74px;
   }
 
   .header-bar {
-    padding: 12px 16px;
+    width: calc(100% - 32px);
+    max-width: 398px;
+    height: 40px;
+    padding: 4px 8px;
+    margin: 0 0 0 16px;
+    border-radius: 8px;
+    justify-content: space-between;
+    box-sizing: border-box;
+    position: relative;
+    flex-shrink: 0;
   }
 
   .header-title {
-    font-size: 20px;
+    font-size: 25px;
+    text-transform: none;
   }
 
   .main-content {
     padding: 0 16px;
-    justify-content: center;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 32px;
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 0;
   }
 
   .shield-container {
-    margin-bottom: 16px;
+    margin: 0 auto 32px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .shield-icon-wrapper {
+    width: 96px;
+    height: 96px;
+  }
+
+  .shield-icon {
+    width: 96px;
+    height: 96px;
+  }
+
+  .main-title {
+    font-family: "Bitter", serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 26px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: white;
+    margin: 0 0 16px;
+    width: 100%;
+    max-width: 398px;
+  }
+
+  .subtitle {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 17px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #D9D9D9;
+    margin: 0 0 24px;
+    width: 100%;
+    max-width: 398px;
+  }
+
+  .otp-container {
+    width: 100%;
+    max-width: 398px;
+    height: 80.44px;
+    gap: 12px;
+    margin: 0 auto 24.56px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .otp-input {
+    flex: 1;
+    min-width: 0;
+    max-width: 90.5px;
+    height: 80.44px;
+    padding: 10px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    font-size: 24px;
+    box-sizing: border-box;
+  }
+
+  .divider {
+    width: 100%;
+    max-width: 398px;
+    margin: 0 auto 32px;
+  }
+
+  .buttons-container {
+    width: 100%;
+    max-width: 398px;
+    gap: 12px;
+    margin: 0 auto 16px;
+  }
+
+  .send-again-button {
+    padding: 14px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: white;
+  }
+
+  .submit-button {
+    padding: 14px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: white;
+  }
+
+  .home-indicator {
+    padding: 4px 0;
+    flex-shrink: 0;
+  }
+}
+
+/* Extra small mobile - <= 375px */
+@media (max-width: 375px) {
+  .verification-page {
+    padding-top: 60px;
+  }
+
+  .header-bar {
+    width: calc(100% - 32px);
+    max-width: 343px;
+    height: 36px;
+    margin-left: 16px;
+  }
+
+  .header-title {
+    font-size: 22px;
+  }
+
+  .main-content {
+    padding-top: 24px;
   }
 
   .shield-icon-wrapper {
@@ -281,19 +420,18 @@
   }
 
   .main-title {
-    font-size: 20px;
-    margin-bottom: 8px;
+    font-size: 22px;
+    margin-bottom: 12px;
   }
 
   .subtitle {
-    font-size: 14px;
-    margin-bottom: 16px;
+    font-size: 15px;
+    margin-bottom: 20px;
   }
 
   .otp-container {
     gap: 8px;
-    margin-bottom: 16px;
-    max-width: 100%;
+    margin-bottom: 20px;
   }
 
   .otp-input {
@@ -303,7 +441,7 @@
   }
 
   .divider {
-    margin-bottom: 12px;
+    margin-bottom: 24px;
   }
 
   .buttons-container {
@@ -311,52 +449,9 @@
     margin-bottom: 12px;
   }
 
-  .send-again-button {
-    padding: 12px;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 100%;
-    letter-spacing: 0%;
-    color: white;
-  }
-
+  .send-again-button,
   .submit-button {
     padding: 12px;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 100%;
-    letter-spacing: 0%;
-    color: white;
-  }
-
-  .home-indicator {
-    padding: 4px 0;
-  }
-}
-
-/* Extra small mobile - <= 375px */
-@media (max-width: 375px) {
-  .shield-icon-wrapper {
-    width: 56px;
-    height: 56px;
-  }
-
-  .shield-icon {
-    width: 56px;
-    height: 56px;
-  }
-
-  .main-title {
-    font-size: 18px;
-  }
-
-  .subtitle {
-    font-size: 13px;
-  }
-
-  .otp-input {
-    max-width: 50px;
-    height: 50px;
     font-size: 18px;
   }
 }
@@ -371,7 +466,8 @@
   }
 
   .header-bar {
-    width: 770px;
+    width: calc(100% - 64px);
+    max-width: 770px;
     height: 48px;
     padding: 4px 8px;
     margin: 0 auto;
@@ -379,22 +475,30 @@
     border-radius: 8px;
     justify-content: space-between;
     box-sizing: border-box;
+    flex-shrink: 0;
   }
 
   .header-title {
     font-size: 25px;
+    text-transform: none;
   }
 
   .main-content {
     padding: 0;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     padding-top: 32px;
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 0;
   }
 
   .shield-container {
     margin-bottom: 32px;
     margin-top: 0;
+    display: flex;
+    justify-content: center;
   }
 
   .shield-icon-wrapper {
@@ -417,15 +521,27 @@
     text-align: center;
     color: #FFFFFF;
     margin: 0 0 16px;
+    width: 100%;
+    max-width: 572px;
   }
 
   .subtitle {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     font-size: 17px;
-    margin-bottom: 24px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #D9D9D9;
+    margin: 0 0 24px;
+    width: 100%;
+    max-width: 572px;
   }
 
   .otp-container {
-    width: 572px;
+    width: 100%;
+    max-width: 572px;
     height: 80.44px;
     gap: 12px;
     margin: 0 auto 23.56px;
@@ -434,24 +550,25 @@
   }
 
   .otp-input {
-    width: 134px;
+    flex: 1;
+    min-width: 0;
+    max-width: 134px;
     height: 80.44px;
     padding: 10px;
     border-radius: 16px;
     border: 1px solid #B3B3B3;
     font-size: 24px;
     box-sizing: border-box;
-    max-width: 134px;
   }
 
   .divider {
-    width: 572px;
+    width: 100%;
     max-width: 572px;
     margin: 0 auto 32px;
   }
 
   .buttons-container {
-    width: 572px;
+    width: 100%;
     max-width: 572px;
     gap: 32px;
     margin: 0 auto;
@@ -466,6 +583,7 @@
     line-height: 100%;
     letter-spacing: 0%;
     border: 1px solid #AA9456;
+    color: white;
   }
 
   .submit-button {
@@ -481,6 +599,7 @@
 
   .home-indicator {
     padding: 8px 0;
+    flex-shrink: 0;
   }
 }
 
