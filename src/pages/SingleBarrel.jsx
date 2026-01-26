@@ -113,7 +113,12 @@ function SingleBarrel() {
                     </div>
                     <a href="#" className="bourbon-profile-link" onClick={(e) => {
                       e.preventDefault()
-                      navigate("/bourbon-profile")
+                      // Navigate to bourbon description based on bourbon name
+                      if (bourbon.name === "Blanton's") {
+                        navigate("/blantons-description")
+                      } else {
+                        navigate("/bourbon-description")
+                      }
                     }}>
                       Bourbon profile →
                     </a>

@@ -6,9 +6,9 @@ import Dashboard from "./pages/Dashboard"
 import Verification from "./pages/Verification"
 import Welcome from "./pages/Welcome"
 import SingleBarrel from "./pages/SingleBarrel"
-import BourbonProfile from "./pages/BourbonProfile"
 import BourbonDescription from "./pages/BourbonDescription"
 import BlantonsDescription from "./pages/BlantonsDescription"
+import ClubHome from "./pages/ClubHome"
 
 
 function App() {
@@ -22,9 +22,9 @@ function App() {
         <Route path="/verification" element={<Verification />} />
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/single-barrel" element={<SingleBarrel />} />
-        <Route path="/bourbon-profile" element={<BourbonProfile />} />
         <Route path="/bourbon-description" element={<BourbonDescription />} />
         <Route path="/blantons-description" element={<BlantonsDescription />} />
+        <Route path="/club-home" element={<ClubHome />} />
       </Routes>
     </BrowserRouter>
   )
