@@ -2,20 +2,24 @@
 import "./SingleBarrel.css"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import AlmostThereModal from "../components/AlmostThereModal"
+import image1 from "../assets/1.png"
+import image2 from "../assets/2.png"
 
 function SingleBarrel() {
   const navigate = useNavigate()
   const [selectedBourbons, setSelectedBourbons] = useState([true, true, true, true, true, true])
+  const [showModal, setShowModal] = useState(false)
   const completedCount = 3
   const totalCount = 6
 
   const bourbons = [
-    { name: "Blanton's", hasWOM: true, image: "blantons" },
-    { name: "Baker's", hasWOM: false, image: "bakers" },
-    { name: "Blanton's", hasWOM: true, image: "blantons" },
-    { name: "Baker's", hasWOM: false, image: "bakers" },
-    { name: "Blanton's", hasWOM: true, image: "blantons" },
-    { name: "Baker's", hasWOM: false, image: "bakers" },
+    { name: "Blanton's", hasWOM: true, image: image1 },
+    { name: "Baker's", hasWOM: false, image: image2 },
+    { name: "Blanton's", hasWOM: true, image: image1 },
+    { name: "Baker's", hasWOM: false, image: image2 },
+    { name: "Blanton's", hasWOM: true, image: image1 },
+    { name: "Baker's", hasWOM: false, image: image2 },
   ]
 
   const toggleBourbon = (index) => {
@@ -25,7 +29,13 @@ function SingleBarrel() {
   }
 
   const handleConfirm = () => {
-    console.log("Confirming selection")
+    setShowModal(true)
+  }
+
+  const handleModalClose = () => {
+    setShowModal(false)
+    // Navigate to bourbon description page after modal closes
+    navigate("/bourbon-description")
   }
 
   const progressPercentage = (completedCount / totalCount) * 100
@@ -56,17 +66,18 @@ function SingleBarrel() {
       <main className="single-barrel-main">
         {/* Tasting Progress Card */}
         <div className="progress-card">
-          <h2 className="progress-title">Tasting progress</h2>
-          <div className="progress-bar-container">
-            <div className="progress-bar-track">
-              <div
-                className="progress-bar-fill"
-                style={{ width: `${progressPercentage}%` }}
-              ></div>
-              <div
-                className="progress-marker"
-                style={{ left: `${progressPercentage}%` }}
-              ></div>
+          <div className="progress-header">
+            <h2 className="progress-title">Tasting progress</h2>
+            <div className="progress-count">{completedCount}/{totalCount}</div>
+          </div>
+          <div className="progress-bar-wrapper">
+            <div className="progress-bar-container">
+              <div className="progress-bar-track">
+                <div
+                  className="progress-bar-fill"
+                  style={{ width: `${progressPercentage}%` }}
+                ></div>
+              </div>
             </div>
             <div className="progress-labels">
               <span>0%</span>
@@ -74,73 +85,79 @@ function SingleBarrel() {
               <span>100%</span>
             </div>
           </div>
-          <div className="progress-count">{completedCount}/{totalCount}</div>
         </div>
 
-        {/* Bourbons to Taste Section */}
+        {/* Bourbons Section */}
         <div className="bourbons-section">
-          <h2 className="bourbons-title">Bourbons to taste</h2>
-          <p className="bourbons-description">
-            Rich, oak-aged bourbons with caramel and spice notes.
-          </p>
-
-          <div className="bourbons-list">
-            {bourbons.map((bourbon, index) => (
-              <div
-                key={index}
-                className={`bourbon-item ${selectedBourbons[index] ? "selected" : ""}`}
-              >
-                <div className="bourbon-image-container">
-                  <div className="bourbon-image-placeholder">
-                    {bourbon.name.charAt(0)}
+          <h2 className="bourbons-title">Try. Taste. Love</h2>
+          <div className="bourbons-list-container">
+            <div className="bourbons-list">
+              {bourbons.map((bourbon, index) => (
+                <div
+                  key={index}
+                  className={`bourbon-item ${selectedBourbons[index] ? "selected" : ""}`}
+                >
+                  <div className="bourbon-image-container">
+                    <img 
+                      src={bourbon.image} 
+                      alt={bourbon.name}
+                      className="bourbon-image"
+                    />
+                  </div>
+                  <div className="bourbon-info">
+                    <div className="bourbon-name-row">
+                      <span className="bourbon-name">{bourbon.name}</span>
+                      {bourbon.hasWOM && (
+                        <span className="wom-tag">WOM</span>
+                      )}
+                    </div>
+                    <a href="#" className="bourbon-profile-link" onClick={(e) => {
+                      e.preventDefault()
+                      navigate("/bourbon-profile")
+                    }}>
+                      Bourbon profile →
+                    </a>
+                  </div>
+                  <div className="bourbon-checkbox-container">
+                    <div className="yellow-dot"></div>
+                    <button
+                      className={`bourbon-checkbox ${selectedBourbons[index] ? "checked" : ""}`}
+                      onClick={() => toggleBourbon(index)}
+                      aria-label={`Toggle ${bourbon.name}`}
+                    >
+                      {selectedBourbons[index] && (
+                        <svg
+                          className="checkmark"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="3"
+                        >
+                          <path d="M20 6L9 17l-5-5" />
+                        </svg>
+                      )}
+                    </button>
                   </div>
                 </div>
-                <div className="bourbon-info">
-                  <div className="bourbon-name-row">
-                    <span className="bourbon-name">{bourbon.name}</span>
-                    {bourbon.hasWOM && (
-                      <span className="wom-tag">WOM</span>
-                    )}
-                  </div>
-                  <a href="#" className="bourbon-profile-link">
-                    Bourbon profile →
-                  </a>
-                </div>
-                <div className="bourbon-checkbox-container">
-                  <div className="yellow-dot"></div>
-                  <button
-                    className={`bourbon-checkbox ${selectedBourbons[index] ? "checked" : ""}`}
-                    onClick={() => toggleBourbon(index)}
-                    aria-label={`Toggle ${bourbon.name}`}
-                  >
-                    {selectedBourbons[index] && (
-                      <svg
-                        className="checkmark"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="3"
-                      >
-                        <path d="M20 6L9 17l-5-5" />
-                      </svg>
-                    )}
-                  </button>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
+          <button className="confirm-button" onClick={handleConfirm}>
+            CONFIRM SELECTION
+          </button>
         </div>
-
-        {/* Confirm Selection Button */}
-        <button className="confirm-button" onClick={handleConfirm}>
-          Confirm selection
-        </button>
       </main>
 
       {/* Home Indicator */}
       <div className="home-indicator">
         <div className="indicator-bar"></div>
       </div>
+
+      {/* Almost There Modal */}
+      <AlmostThereModal
+        isOpen={showModal}
+        onClose={handleModalClose}
+      />
     </div>
   
   )

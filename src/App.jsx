@@ -7,6 +7,8 @@ import Verification from "./pages/Verification"
 import Welcome from "./pages/Welcome"
 import SingleBarrel from "./pages/SingleBarrel"
 import BourbonProfile from "./pages/BourbonProfile"
+import BourbonDescription from "./pages/BourbonDescription"
+import BlantonsDescription from "./pages/BlantonsDescription"
 
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/single-barrel" element={<SingleBarrel />} />
         <Route path="/bourbon-profile" element={<BourbonProfile />} />
+        <Route path="/bourbon-description" element={<BourbonDescription />} />
+        <Route path="/blantons-description" element={<BlantonsDescription />} />
       </Routes>
     </BrowserRouter>
   )
