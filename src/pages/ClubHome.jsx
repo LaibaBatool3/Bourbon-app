@@ -143,7 +143,7 @@ function ClubHome() {
           <img src={homeIcon} alt="Home" className="nav-icon" />
           <span className="nav-label">Home</span>
         </button>
-        <button className="nav-button">
+        <button className="nav-button" onClick={() => navigate("/club-list")}>
           <img src={clubListIcon} alt="Club List" className="nav-icon" />
           <span className="nav-label">Club List</span>
         </button>

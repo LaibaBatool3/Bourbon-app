@@ -9,6 +9,8 @@ import SingleBarrel from "./pages/SingleBarrel"
 import BourbonDescription from "./pages/BourbonDescription"
 import BlantonsDescription from "./pages/BlantonsDescription"
 import ClubHome from "./pages/ClubHome"
+import Pamphlet from "./pages/Pamphlet"
+import ClubList from "./pages/ClubList"
 
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
         <Route path="/bourbon-description" element={<BourbonDescription />} />
         <Route path="/blantons-description" element={<BlantonsDescription />} />
         <Route path="/club-home" element={<ClubHome />} />
+        <Route path="/pamphlet" element={<Pamphlet />} />
+        <Route path="/club-list" element={<ClubList />} />
       </Routes>
     </BrowserRouter>
   )
