@@ -62,21 +62,26 @@
   }
 }
 
-/* iPad Portrait - 768px to 834px */
-@media (min-width: 768px) and (max-width: 834px) {
+/* iPad Portrait - 768px to 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
   .landing {
     height: 100vh;
+    max-width: 834px;
+    margin: 0 auto;
   }
 
   .logo {
     width: 398px;
     height: 130px;
     transform: scale(1.15);
+    margin: 0 auto;
   }
 
   .overlay {
     justify-content: center;
+    align-items: center;
     padding: 0;
+    width: 100%;
   }
 }
 

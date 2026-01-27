@@ -1,11 +1,12 @@
 .club-home-page {
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   background-color: #000000;
   color: white;
   display: flex;
   flex-direction: column;
-  padding-bottom: 100px;
+  overflow: hidden;
+  position: relative;
 }
 
 .club-home-header {
@@ -45,11 +46,14 @@
 
 .club-home-main {
   flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   gap: 24px;
   padding: 0 20px 24px;
   overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 80px;
 }
 
 /* Section Styles */
@@ -304,25 +308,31 @@
   left: 0;
   right: 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  padding: 12px 20px 20px;
+  gap: 2px;
+  padding: 12px 20px calc(20px + env(safe-area-inset-bottom));
   background-color: #000000;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 100;
+  box-sizing: border-box;
 }
 
 .nav-button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  justify-content: center;
+  gap: 2px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px 16px;
-  border-radius: 12px;
+  width: 411px;
+  height: 80px;
+  padding: 8px 12px;
+  border-radius: 24px;
   transition: background-color 0.3s ease;
+  box-sizing: border-box;
 }
 
 .nav-button.active {
@@ -354,12 +364,12 @@
 /* Home Indicator */
 .home-indicator {
   position: fixed;
-  bottom: 0;
+  bottom: calc(env(safe-area-inset-bottom));
   left: 0;
   right: 0;
   width: 100%;
   padding: 8px 0;
-  background-color: #000000;
+  background-color: transparent;
   z-index: 101;
   display: flex;
   justify-content: center;
@@ -378,11 +388,13 @@
   .club-home-page {
     max-width: 834px;
     margin: 0 auto;
-    padding-bottom: 100px;
+    height: 100vh;
+    overflow: hidden;
   }
 
   .club-home-header {
     padding: 24px 32px;
+    flex-shrink: 0;
   }
 
   .welcome-title {
@@ -392,6 +404,7 @@
   .club-home-main {
     padding: 0 32px 24px;
     gap: 32px;
+    padding-bottom: 80px;
   }
 
   .progress-section,
@@ -409,14 +422,28 @@
     max-width: 834px;
     left: 50%;
     transform: translateX(-50%);
-    padding: 16px 32px 24px;
+    padding: 16px 32px calc(24px + env(safe-area-inset-bottom));
+    gap: 2px;
+  }
+
+  .nav-button {
+    width: 411px;
+    height: 80px;
+    padding: 8px 12px;
+    border-radius: 24px;
   }
 }
 
 /* Mobile Layout (max-width: 430px) */
 @media (max-width: 430px) {
+  .club-home-page {
+    height: 100vh;
+    overflow: hidden;
+  }
+
   .club-home-header {
     padding: 16px;
+    flex-shrink: 0;
   }
 
   .welcome-title {
@@ -426,6 +453,7 @@
   .club-home-main {
     padding: 0 16px 24px;
     gap: 20px;
+    padding-bottom: 80px;
   }
 
   .progress-section,
@@ -448,6 +476,19 @@
   .offer-image-container {
     width: 60px;
     height: 60px;
+  }
+
+  .bottom-nav {
+    padding: 12px 20px calc(20px + env(safe-area-inset-bottom));
+    gap: 2px;
+  }
+
+  .nav-button {
+    width: calc(50% - 1px);
+    max-width: 195px;
+    height: 80px;
+    padding: 8px 12px;
+    border-radius: 24px;
   }
 }
 
