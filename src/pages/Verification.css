@@ -456,8 +456,8 @@
   }
 }
 
-/* iPad Portrait - 768px to 834px */
-@media (min-width: 768px) and (max-width: 834px) {
+/* iPad Portrait - 768px to 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
   .verification-page {
     height: 100vh;
     overflow: hidden;

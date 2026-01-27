@@ -38,7 +38,23 @@ body {
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  background-color: #000000;
+}
+
+@media (min-width: 1025px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  #root {
+    max-width: 834px;
+    width: 100%;
+    margin: 0 auto;
+  }
 }
 
 #root {

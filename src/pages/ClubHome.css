@@ -492,6 +492,14 @@
   }
 }
 
+/* Desktop - >= 1024px */
+@media (min-width: 1025px) {
+  .club-home-page {
+    max-width: 834px;
+    margin: 0 auto;
+  }
+}
+
 /* Extra small mobile (max-width: 375px) */
 @media (max-width: 375px) {
   .welcome-title {

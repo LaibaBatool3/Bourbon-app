@@ -478,8 +478,8 @@
   }
 }
 
-/* Larger iPad/Desktop */
-@media (min-width: 835px) {
+/* Desktop - >= 1024px */
+@media (min-width: 1025px) {
   .welcome-page {
     max-width: 834px;
     margin: 0 auto;
