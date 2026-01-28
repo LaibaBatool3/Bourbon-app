@@ -5,6 +5,7 @@ import image1 from "../assets/1.png"
 import image2 from "../assets/2.png"
 import homeIcon from "../assets/Home.png"
 import clubListIcon from "../assets/Club-list.png"
+import pamphletIcon from "../assets/Icons.png"
 import halloweenIcon from "../assets/Halloween.png"
 import proofIcon from "../assets/proof.png"
 import distilleryIcon from "../assets/distillery.png"
@@ -13,16 +14,36 @@ import mashBillIcon from "../assets/mash-bill.png"
 import chevronIcon from "../assets/Combined Shape.png"
 import buttonIcon from "../assets/Button.png"
 import whiskey2Icon from "../assets/whiskey2.png"
+// Using public folder path for file with special characters
+const discountIcon = "/-20%.png"
 
 function ClubList() {
   const navigate = useNavigate()
   const [expandedSections, setExpandedSections] = useState({})
+  const [openDropdown, setOpenDropdown] = useState(null)
+  const [selectedDistillery, setSelectedDistillery] = useState("Buffalo Trace")
+  const [selectedAge, setSelectedAge] = useState(null)
+  const [selectedProof, setSelectedProof] = useState(null)
+  const [selectedMashbill, setSelectedMashbill] = useState(null)
 
   const toggleSection = (sectionId) => {
     setExpandedSections(prev => ({
       ...prev,
       [sectionId]: !prev[sectionId]
     }))
+  }
+
+  const handleDropdownItemClick = (filterType, value) => {
+    if (filterType === 'distillery') {
+      setSelectedDistillery(value)
+    } else if (filterType === 'age') {
+      setSelectedAge(value)
+    } else if (filterType === 'proof') {
+      setSelectedProof(value)
+    } else if (filterType === 'mashbill') {
+      setSelectedMashbill(value)
+    }
+    setOpenDropdown(null)
   }
 
   const singleBarrelSections = [
@@ -69,14 +90,12 @@ function ClubList() {
         {/* Event Cards */}
         <div className="event-cards">
           <div className="event-card whiskey-wednesday-card">
-            <img src={whiskey2Icon} alt="Whiskey" className="event-icon" />
+            <span className="discount-text">-20%</span>
             <div className="event-content">
               <h3 className="event-title">Whiskey Wednesday</h3>
               <p className="event-subtitle">Members only</p>
             </div>
-            <div className="event-arrow-circle">
-              <img src={chevronIcon} alt="Arrow" className="event-arrow-icon" />
-            </div>
+            <img src={buttonIcon} alt="Button" className="event-button-icon" />
           </div>
           <div className="event-card halloween-card">
             <img src={halloweenIcon} alt="Halloween" className="event-icon" />
@@ -86,31 +105,116 @@ function ClubList() {
             </div>
             <img src={buttonIcon} alt="Button" className="event-button-icon" />
           </div>
+          <div className="event-card all-whiskey-card">
+            <span className="discount-text">-20%</span>
+            <div className="event-content">
+              <h3 className="event-title">All Whiskey</h3>
+              <p className="event-subtitle">Every Wednesday</p>
+            </div>
+            <img src={buttonIcon} alt="Button" className="event-button-icon" />
+          </div>
         </div>
 
         {/* Filter Buttons */}
         <div className="filter-buttons">
-          <button className="filter-btn">
-            <img src={proofIcon} alt="Proof" className="filter-icon" />
-            <span className="filter-text">Proof</span>
-            <span className="filter-arrow">▼</span>
-          </button>
-          <button className="filter-btn">
-            <img src={distilleryIcon} alt="Distillery" className="filter-icon" />
-            <span className="filter-text">Distillery</span>
-            <span className="filter-arrow">▼</span>
-          </button>
-          <button className="filter-btn">
-            <img src={ageIcon} alt="Age" className="filter-icon" />
-            <span className="filter-text">Age</span>
-            <span className="filter-arrow">▼</span>
-          </button>
-          <button className="filter-btn">
-            <img src={mashBillIcon} alt="Mash bill" className="filter-icon" />
-            <span className="filter-text">Mash bill</span>
-            <span className="filter-arrow">▼</span>
-            <span className="filter-count">0</span>
-          </button>
+          <div className="filter-btn-wrapper">
+            <button 
+              className={`filter-btn ${openDropdown === 'mashbill' ? 'active' : ''}`}
+              onClick={() => setOpenDropdown(openDropdown === 'mashbill' ? null : 'mashbill')}
+            >
+              <img src={mashBillIcon} alt="Mash bill" className="filter-icon" />
+              <span className="filter-text">Mash bill</span>
+              <span className={`filter-arrow ${openDropdown === 'mashbill' ? 'open' : ''}`}>▼</span>
+            </button>
+            {openDropdown === 'mashbill' && (
+              <div className="filter-dropdown">
+                <button className="dropdown-item" onClick={() => handleDropdownItemClick('mashbill', 'Wheated bourbon')}>Wheated bourbon</button>
+                <button className="dropdown-item" onClick={() => handleDropdownItemClick('mashbill', 'Rye forward bourbon')}>Rye forward bourbon</button>
+                <button className="dropdown-item" onClick={() => handleDropdownItemClick('mashbill', 'High Rye bourbon')}>High Rye bourbon</button>
+                <button className="dropdown-item" onClick={() => handleDropdownItemClick('mashbill', 'Wheat whiskey')}>Wheat whiskey</button>
+                <button className="dropdown-item" onClick={() => handleDropdownItemClick('mashbill', 'Four grain whiskey')}>Four grain whiskey</button>
+                <button className="dropdown-item" onClick={() => handleDropdownItemClick('mashbill', 'KY- style Rye')}>KY- style Rye</button>
+                <button className="dropdown-item" onClick={() => handleDropdownItemClick('mashbill', 'PA- style Rye')}>PA- style Rye</button>
+                <button className="dropdown-item" onClick={() => handleDropdownItemClick('mashbill', 'IN- style Rye')}>IN- style Rye</button>
+                <button className="dropdown-item" onClick={() => handleDropdownItemClick('mashbill', 'American Single Malt')}>American Single Malt</button>
+              </div>
+            )}
+          </div>
+          <div className="filter-btn-wrapper">
+            <button 
+              className={`filter-btn ${openDropdown === 'distillery' ? 'active' : ''}`}
+              onClick={() => setOpenDropdown(openDropdown === 'distillery' ? null : 'distillery')}
+            >
+              <img src={distilleryIcon} alt="Distillery" className="filter-icon" />
+              <span className="filter-text">Distillery</span>
+              <span className={`filter-arrow ${openDropdown === 'distillery' ? 'open' : ''}`}>▼</span>
+            </button>
+            {openDropdown === 'distillery' && (
+              <div className="filter-dropdown">
+                <button 
+                  className={`dropdown-item ${selectedDistillery === 'Buffalo Trace' ? 'selected' : ''}`}
+                  onClick={() => handleDropdownItemClick('distillery', 'Buffalo Trace')}
+                >
+                  Buffalo Trace
+                  {selectedDistillery === 'Buffalo Trace' && <span className="checkmark">✓</span>}
+                </button>
+                <button 
+                  className={`dropdown-item ${selectedDistillery === 'Rye forward bourbon' ? 'selected' : ''}`}
+                  onClick={() => handleDropdownItemClick('distillery', 'Rye forward bourbon')}
+                >
+                  Rye forward bourbon
+                  {selectedDistillery === 'Rye forward bourbon' && <span className="checkmark">✓</span>}
+                </button>
+                <button 
+                  className={`dropdown-item ${selectedDistillery === 'Makers Mark' ? 'selected' : ''}`}
+                  onClick={() => handleDropdownItemClick('distillery', 'Makers Mark')}
+                >
+                  Makers Mark
+                  {selectedDistillery === 'Makers Mark' && <span className="checkmark">✓</span>}
+                </button>
+              </div>
+            )}
+          </div>
+          <div className="filter-btn-wrapper">
+            <button 
+              className={`filter-btn ${openDropdown === 'age' ? 'active' : ''}`}
+              onClick={() => setOpenDropdown(openDropdown === 'age' ? null : 'age')}
+            >
+              <img src={ageIcon} alt="Age" className="filter-icon" />
+              <span className="filter-text">Age</span>
+              <span className={`filter-arrow ${openDropdown === 'age' ? 'open' : ''}`}>▼</span>
+            </button>
+            {openDropdown === 'age' && (
+              <div className="filter-dropdown">
+                <button className="dropdown-item" onClick={() => handleDropdownItemClick('age', 'No age')}>No age</button>
+                <button className="dropdown-item" onClick={() => handleDropdownItemClick('age', 'under 4 years')}>under 4 years</button>
+                <button className="dropdown-item" onClick={() => handleDropdownItemClick('age', '4yrs-6yrs')}>4yrs-6yrs</button>
+                <button className="dropdown-item" onClick={() => handleDropdownItemClick('age', '6yrs-8yrs')}>6yrs-8yrs</button>
+                <button className="dropdown-item" onClick={() => handleDropdownItemClick('age', '8yrs-10ys')}>8yrs-10ys</button>
+                <button className="dropdown-item" onClick={() => handleDropdownItemClick('age', '10ys-12yrs')}>10ys-12yrs</button>
+                <button className="dropdown-item" onClick={() => handleDropdownItemClick('age', '12yrs+')}>12yrs+</button>
+              </div>
+            )}
+          </div>
+          <div className="filter-btn-wrapper">
+            <button 
+              className={`filter-btn ${openDropdown === 'proof' ? 'active' : ''}`}
+              onClick={() => setOpenDropdown(openDropdown === 'proof' ? null : 'proof')}
+            >
+              <img src={proofIcon} alt="Proof" className="filter-icon" />
+              <span className="filter-text">Proof</span>
+              <span className={`filter-arrow ${openDropdown === 'proof' ? 'open' : ''}`}>▼</span>
+            </button>
+            {openDropdown === 'proof' && (
+              <div className="filter-dropdown">
+                <button className="dropdown-item" onClick={() => handleDropdownItemClick('proof', '80–89')}>80–89</button>
+                <button className="dropdown-item" onClick={() => handleDropdownItemClick('proof', '90–99')}>90–99</button>
+                <button className="dropdown-item" onClick={() => handleDropdownItemClick('proof', '100–109')}>100–109</button>
+                <button className="dropdown-item" onClick={() => handleDropdownItemClick('proof', '110–119')}>110–119</button>
+                <button className="dropdown-item" onClick={() => handleDropdownItemClick('proof', '120+')}>120+</button>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Single Barrel Sections */}
@@ -197,13 +301,7 @@ function ClubList() {
           <span className="nav-label">Home</span>
         </button>
         <button className="nav-button" onClick={() => navigate("/pamphlet")}>
-          <svg className="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <rect x="3" y="3" width="18" height="18" rx="2" />
-            <line x1="9" y1="3" x2="9" y2="21" />
-            <line x1="15" y1="3" x2="15" y2="21" />
-            <line x1="3" y1="9" x2="21" y2="9" />
-            <line x1="3" y1="15" x2="21" y2="15" />
-          </svg>
+          <img src={pamphletIcon} alt="Pamphlet" className="nav-icon" />
           <span className="nav-label">Pamphlet</span>
         </button>
       </nav>

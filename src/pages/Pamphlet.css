@@ -53,8 +53,9 @@
 
 .page-title {
   font-family: "Bitter", serif;
-  font-weight: 400;
-  font-size: 32px;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 26px;
   line-height: 100%;
   letter-spacing: 0%;
   color: #FFFFFF;
@@ -66,13 +67,14 @@
 .pamphlet-main {
   flex: 1;
   padding: 0 20px 100px;
+  padding-top: 320px; /* Space for filter buttons at top: 254px + 48px height + gap */
   display: flex;
   flex-direction: column;
   gap: 20px;
   overflow-y: auto;
 }
 
-/* Event Cards */
+/* Event Cards - iPad Default */
 .event-cards {
   display: flex;
   gap: 12px;
@@ -81,8 +83,7 @@
 }
 
 .event-card {
-  flex: 1;
-  min-width: 0;
+  width: 440px;
   height: 104px;
   background-color: #646940;
   border-radius: 18px;
@@ -94,17 +95,34 @@
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .halloween-card {
   position: relative;
 }
 
+.whiskey-wednesday-card {
+  position: relative;
+}
+
+.all-whiskey-card {
+  position: relative;
+}
+
+.discount-text {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: #FFFFFF;
+  flex-shrink: 0;
+  margin-right: 12px;
+}
+
 .event-icon {
-  width: auto;
-  height: auto;
-  max-width: 48px;
-  max-height: 48px;
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
   flex-shrink: 0;
   object-fit: contain;
 }
@@ -120,10 +138,12 @@
 .event-title {
   font-family: "Work Sans", sans-serif;
   font-weight: 600;
-  font-size: 16px;
+  font-style: normal;
+  font-size: 17px;
+  line-height: 100%;
+  letter-spacing: 0%;
   color: #FFFFFF;
   margin: 0;
-  line-height: 100%;
 }
 
 .event-subtitle {
@@ -161,30 +181,34 @@
   justify-content: center;
 }
 
-/* Filter Buttons */
+/* Filter Buttons - iPad Default */
 .filter-buttons {
+  width: 770px;
+  height: 48px;
+  position: absolute;
+  top: 254px;
+  left: 32px;
   display: flex;
-  gap: 8px;
-  margin-bottom: 8px;
-  flex-wrap: wrap;
-  position: relative;
+  gap: 16px;
+  margin-bottom: 0;
+  flex-wrap: nowrap;
 }
 
 .filter-btn-wrapper {
-  flex: 1;
-  min-width: 80px;
   position: relative;
 }
 
 .filter-btn {
-  width: 100%;
+  width: 169px;
+  height: 48px;
   background-color: #201F1E;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  padding: 10px 12px;
+  border: 1px solid #B3B3B3;
+  border-radius: 12px;
+  padding: 0;
   display: flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
+  gap: 8px;
   cursor: pointer;
   transition: background-color 0.2s ease;
   box-sizing: border-box;
@@ -209,15 +233,19 @@
 .filter-text {
   font-family: "Work Sans", sans-serif;
   font-weight: 400;
-  font-size: 14px;
-  color: #FFFFFF;
-  flex: 1;
-  text-align: left;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  vertical-align: middle;
+  color: #D9D9D9;
+  flex: 0;
 }
 
 .filter-arrow {
   font-size: 10px;
-  color: rgba(255, 255, 255, 0.6);
+  color: #D9D9D9;
   flex-shrink: 0;
   transition: transform 0.2s ease;
 }
@@ -232,14 +260,15 @@
   top: calc(100% + 4px);
   left: 0;
   right: 0;
-  background-color: #2a2a2a;
+  background-color: #201F1E;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
-  padding: 8px 0;
+  padding: 0;
   z-index: 1000;
   max-height: 300px;
   overflow-y: auto;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .filter-dropdown::-webkit-scrollbar {
@@ -260,6 +289,7 @@
   padding: 10px 16px;
   background: none;
   border: none;
+  border-top: none;
   color: #FFFFFF;
   font-family: "Work Sans", sans-serif;
   font-weight: 400;
@@ -270,6 +300,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.dropdown-item:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .dropdown-item:hover {
@@ -294,12 +328,15 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  position: relative;
 }
 
 .section-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .section-title {
@@ -486,11 +523,13 @@
   background: none;
   border: none;
   cursor: pointer;
-  width: calc(50% - 1px);
-  max-width: 195px;
-  height: 80px;
-  padding: 8px 12px;
-  border-radius: 24px;
+  width: 209px;
+  height: 62px;
+  padding-top: 8px;
+  padding-right: 12px;
+  padding-bottom: 8px;
+  padding-left: 12px;
+  border-radius: 16px;
   transition: background-color 0.3s ease;
   box-sizing: border-box;
 }
@@ -581,32 +620,37 @@
 
   .pamphlet-main {
     padding: 0 16px 100px;
+    padding-top: 16px; /* Reset padding-top for mobile */
     gap: 16px;
   }
 
   .event-cards {
     gap: 8px;
     width: 100%;
+    padding-left: 121px;
   }
 
   .event-card {
-    flex: 1;
-    min-width: 0;
-    height: 104px;
-    padding-top: 16px;
-    padding-right: 16px;
-    padding-bottom: 16px;
-    padding-left: 16px;
+    width: 366px;
+    height: 94px;
+    padding: 16px;
     border-radius: 18px;
+    flex-shrink: 0;
   }
 
   .event-icon {
-    max-width: 40px;
-    max-height: 40px;
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
   }
 
   .event-title {
-    font-size: 14px;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 17px;
+    line-height: 100%;
+    letter-spacing: 0%;
   }
 
   .event-subtitle {
@@ -614,102 +658,28 @@
   }
 
   .filter-buttons {
+    position: relative;
+    width: 100%;
+    height: auto;
+    top: auto;
+    left: auto;
     gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
   }
 
   .filter-btn {
-    padding: 8px 10px;
+    width: auto;
+    height: auto;
     min-width: 70px;
+    padding: 8px 10px;
+    border-radius: 8px;
   }
 
   .filter-text {
     font-size: 12px;
-  }
-
-  .single-barrel-section {
-    padding: 12px;
-    gap: 12px;
-  }
-
-  .section-title {
-    font-size: 20px;
-  }
-
-  .bourbon-image {
-    width: 50px;
-    height: 70px;
-  }
-
-  .bourbon-name {
-    font-size: 16px;
-  }
-
-  .bourbon-profile-link {
-    font-size: 12px;
-  }
-
-  .current-price {
-    font-size: 14px;
-  }
-
-  .view-tasting-btn {
-    padding: 12px;
-    font-size: 12px;
-    background-color: transparent;
-    border: 1px solid #AA9456;
-    color: #AA9456;
-  }
-
-  .bottom-nav {
-    padding: 12px 16px calc(20px + env(safe-area-inset-bottom));
-  }
-
-  .nav-button {
-    height: 70px;
-    padding: 6px 10px;
-  }
-}
-
-/* iPad Responsive (768px to 1024px) */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .pamphlet-page {
-    height: 100vh;
-    overflow: hidden;
-  }
-
-  .status-bar {
-    padding: 6px 16px;
-    font-size: 12px;
-  }
-
-  .pamphlet-header {
-    padding: 12px 16px;
-    top: 32px;
-  }
-
-  .page-title {
-    font-size: 28px;
-  }
-
-  .pamphlet-main {
-    padding: 0 16px 100px;
-    gap: 16px;
-  }
-
-  .event-cards {
-    gap: 8px;
-    width: 100%;
-  }
-
-  .event-card {
-    flex: 1;
-    min-width: 0;
-    height: 104px;
-    padding-top: 16px;
-    padding-right: 16px;
-    padding-bottom: 16px;
-    padding-left: 16px;
-    border-radius: 18px;
+    color: #FFFFFF;
+    text-align: left;
   }
 
   .single-barrel-section {
@@ -747,12 +717,162 @@
   }
 
   .bottom-nav {
-    padding: 12px 16px calc(20px + env(safe-area-inset-bottom));
+    top: 820px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 430px;
+    height: 112px;
+    padding: 0;
+    gap: 2px;
   }
 
   .nav-button {
+    width: 209px;
+    height: 62px;
+    padding: 8px 12px;
+    border-radius: 12px;
+  }
+}
+
+/* iPad Responsive (768px to 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .pamphlet-page {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .status-bar {
+    padding: 6px 16px;
+    font-size: 12px;
+  }
+
+  .pamphlet-header {
+    padding: 12px 16px;
+    top: 32px;
+  }
+
+  .page-title {
+    font-family: "Bitter", serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 26px;
+    line-height: 100%;
+    letter-spacing: 0%;
+  }
+
+  .pamphlet-main {
+    padding: 0 20px 100px;
+    padding-top: 320px; /* Space for filter buttons */
+    gap: 20px;
+  }
+
+  .event-cards {
+    gap: 12px;
+    width: 100%;
+  }
+
+  .event-card {
+    width: 440px;
+    height: 104px;
+    padding-top: 16px;
+    padding-right: 24px;
+    padding-bottom: 16px;
+    padding-left: 24px;
+    border-radius: 18px;
+    flex-shrink: 0;
+  }
+
+  .event-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+  }
+
+  .event-title {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 17px;
+    line-height: 100%;
+    letter-spacing: 0%;
+  }
+
+  .filter-buttons {
+    width: 770px;
+    height: 48px;
+    position: absolute;
+    top: 254px;
+    left: 32px;
+    gap: 16px;
+  }
+
+  .filter-btn {
+    width: 169px;
+    height: 48px;
+    border-radius: 12px;
+  }
+
+  .filter-text {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    vertical-align: middle;
+    color: #D9D9D9;
+  }
+
+  .single-barrel-section {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+
+  .bourbon-image {
+    width: 50px;
     height: 70px;
-    padding: 6px 10px;
+  }
+
+  .bourbon-name {
+    font-size: 16px;
+  }
+
+  .bourbon-profile-link {
+    font-size: 12px;
+  }
+
+  .current-price {
+    font-size: 14px;
+  }
+
+  .view-tasting-btn {
+    padding: 12px;
+    font-size: 12px;
+    background-color: transparent;
+    border: 1px solid #AA9456;
+    color: #FFFFFF;
+  }
+
+  .bottom-nav {
+    top: 820px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 430px;
+    height: 112px;
+    padding: 0;
+    gap: 2px;
+  }
+
+  .nav-button {
+    width: 209px;
+    height: 62px;
+    padding: 8px 12px;
+    border-radius: 12px;
   }
 }
 
