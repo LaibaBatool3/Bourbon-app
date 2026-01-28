@@ -50,7 +50,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
+  gap: 24px;
   position: relative;
   z-index: 3;
   margin: 0 auto;
@@ -63,6 +63,7 @@
   height: 180px;
   object-fit: contain;
   margin: 0;
+  margin-bottom: 0;
   flex-shrink: 0;
   transform: scale(1.8);
 }
@@ -74,6 +75,7 @@
   font-size: 26px;
   text-align: center;
   margin: 0;
+  margin-top: 0;
   width: 100%;
   line-height: 100%;
   letter-spacing: 0%;
@@ -90,6 +92,7 @@
   letter-spacing: 0%;
   text-align: center;
   margin: 0;
+  margin-top: 8px;
   width: 100%;
   flex-shrink: 0;
 }
@@ -148,7 +151,7 @@
 }
 
 .form-input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+   color: rgba(255, 255, 255, 0.5); 
 }
 
 .form-input:focus {
@@ -225,11 +228,11 @@
 }
 
 .social-button {
-  flex: 1;
+  flex: 0 0 191px;
   width: 191px;
   height: 44px;
   padding: 12px 16px;
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: transparent;
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 16px;
   font-size: 16px;
@@ -317,7 +320,7 @@
     max-width: 398px;
     width: 100%;
     padding: 24px 16px 144px;
-    gap: 32px;
+    gap: 24px;
     margin: 0 auto;
     box-sizing: border-box;
   }
@@ -326,18 +329,21 @@
     width: 150px;
     height: 150px;
     transform: scale(1.8);
+    margin-bottom: 0;
   }
 
   .heading {
     font-size: 22px;
     line-height: 100%;
     letter-spacing: 0%;
+    margin-top: 0;
   }
 
   .description {
     font-size: 14px;
     line-height: 100%;
     letter-spacing: 0%;
+    margin-top: 8px;
   }
 
   .progress-indicator {
@@ -359,9 +365,12 @@
   .form-input {
     height: 56px;
     padding: 16px;
+    border: 1px solid white;
     border-radius: 20px;
     font-size: 15px;
     color: rgba(255, 255, 255, 0.7);
+    background-color: transparent !important;
+    background: transparent !important;
   }
 
   .form-input::placeholder {
@@ -388,15 +397,17 @@
   }
 
   .social-button {
+    flex: 0 0 191px;
     width: 191px;
     height: 44px;
     padding: 12px 16px;
-    border-radius: 16px;
-    background-color: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    background-color: transparent;
     backdrop-filter: blur(8px);
     font-size: 15px;
     gap: 8px;
+    box-sizing: border-box;
   }
 
   .google-icon,
@@ -497,7 +508,7 @@
     max-width: 398px;
     width: 100%;
     padding: 24px 0;
-    gap: 32px;
+    gap: 24px;
     margin: 0 auto;
     box-sizing: border-box;
   }
@@ -506,18 +517,21 @@
     width: 200px;
     height: 200px;
     transform: scale(1.8);
+    margin-bottom: 0;
   }
 
   .heading {
     font-size: 32px;
     line-height: 100%;
     letter-spacing: 0%;
+    margin-top: 0;
   }
 
   .description {
     font-size: 17px;
     line-height: 100%;
     letter-spacing: 0%;
+    margin-top: 8px;
   }
 
   .progress-indicator {
@@ -535,8 +549,11 @@
   .form-input {
     height: 56px;
     padding: 16px;
+    border: 1px solid white;
     border-radius: 16px;
     font-size: 16px;
+    background-color: transparent !important;
+    background: transparent !important;
   }
 
   .primary-button {
@@ -553,15 +570,17 @@
   }
 
   .social-button {
+    flex: 0 0 191px;
     width: 191px;
     height: 44px;
     padding: 12px 16px;
-    border-radius: 16px;
-    background-color: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    background-color: transparent;
     backdrop-filter: blur(8px);
     font-size: 16px;
     gap: 8px;
+    box-sizing: border-box;
   }
 
   .footer-link {
@@ -639,8 +658,11 @@
   .form-input {
     height: 56px;
     padding: 16px;
+    border: 1px solid white;
     border-radius: 16px;
     font-size: 16px;
+    background-color: transparent !important;
+    background: transparent !important;
   }
 
   .primary-button {
@@ -657,15 +679,17 @@
   }
 
   .social-button {
+    flex: 0 0 191px;
     width: 191px;
     height: 44px;
     padding: 12px 16px;
-    border-radius: 16px;
-    background-color: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    background-color: transparent;
     backdrop-filter: blur(8px);
     font-size: 16px;
     gap: 8px;
+    box-sizing: border-box;
   }
 
   .footer-link {

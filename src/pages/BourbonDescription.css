@@ -405,70 +405,93 @@
 /* iPad Layout (768px to 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
   .bourbon-description-page {
-    width: 834px;
+    width: 100%;
+    max-width: 834px;
     height: 100vh;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
 
   .bourbon-description-header {
-    width: 834px;
+    width: 100%;
+    max-width: 834px;
     padding: 16px 32px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    box-sizing: border-box;
   }
 
   .bourbon-description-main {
-    width: 834px;
+    width: 100%;
+    max-width: 834px;
     height: 100vh;
     position: relative;
     overflow: hidden;
+    margin: 0 auto;
   }
 
   .bourbon-image-section {
-    width: 834px;
+    width: 100%;
+    max-width: 834px;
     height: 738px;
     position: absolute;
     top: 0;
     left: 0;
+    right: 0;
+    margin: 0 auto;
   }
 
   .bourbon-main-image {
-    width: 834px;
+    width: 100%;
+    max-width: 834px;
     height: 738px;
     object-fit: cover;
   }
 
   .bourbon-content-section {
-    width: 835px;
+    width: 100%;
+    max-width: 834px;
     min-height: 938px;
     position: absolute;
     top: 715px;
-    left: -1px;
+    left: 50%;
+    transform: translateX(-50%);
     padding: 24px 32px;
     gap: 32px;
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
     box-sizing: border-box;
     overflow-y: auto;
+    overflow-x: hidden;
     max-height: calc(100vh - 715px);
   }
 
   .bourbon-header-info {
-    width: 771px;
+    width: 100%;
+    max-width: 771px;
   }
 
   .bourbon-divider {
-    width: 771px;
+    width: 100%;
+    max-width: 771px;
   }
 
   .bourbon-stats-container {
-    width: 771px;
+    width: 100%;
+    max-width: 771px;
     height: 80px;
     gap: 16px;
   }
 
   .bourbon-stat-card {
-    width: 246.33334350585938px;
+    flex: 1;
+    min-width: 0;
     height: 80px;
     border-width: 1px 0px 0px 1px;
     border-style: solid;
@@ -477,19 +500,23 @@
   }
 
   .bourbon-description-text {
-    width: 771px;
+    width: 100%;
+    max-width: 771px;
     border-width: 1px 0px 0px 1px;
     border-style: solid;
     border-color: #D4BD85;
     padding: 16px;
+    box-sizing: border-box;
   }
 
   .bourbon-action-buttons {
-    width: 771px;
+    width: 100%;
+    max-width: 771px;
   }
 
   .community-notes-section {
-    width: 771px;
+    width: 100%;
+    max-width: 771px;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -506,7 +533,8 @@
   }
 
   .add-comment-input {
-    width: 771px;
+    width: 100%;
+    max-width: 771px;
     padding: 14px 16px;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 12px;
@@ -531,7 +559,8 @@
   }
 
   .review-buttons {
-    width: 771px;
+    width: 100%;
+    max-width: 771px;
     display: flex;
     gap: 12px;
   }
@@ -562,7 +591,8 @@
   }
 
   .comments-list {
-    width: 771px;
+    width: 100%;
+    max-width: 771px;
     display: flex;
     flex-direction: column;
     gap: 0;
@@ -594,11 +624,13 @@
   }
 
   .home-indicator {
-    position: absolute;
+    position: fixed;
     bottom: 0;
-    width: 834px;
+    width: 100%;
+    max-width: 834px;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 100;
   }
 }
 
