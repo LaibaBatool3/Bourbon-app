@@ -1,14 +1,19 @@
+/* Base styles - Mobile First */
 .bourbon-description-page {
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
-  background-color: #000000;
+  height: 100vh;
+  background-color: #201F1E;
   color: white;
   position: relative;
   overflow-x: hidden;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .bourbon-description-header {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   right: 0;
@@ -18,7 +23,8 @@
   padding: 16px;
   gap: 16px;
   z-index: 10;
-  background: transparent;
+  background-color: transparent;
+  flex-shrink: 0;
 }
 
 .back-button {
@@ -55,13 +61,20 @@
 
 .bourbon-description-main {
   width: 100%;
+  flex: 1;
+  min-height: 0;
   position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Image Section */
 .bourbon-image-section {
   width: 100%;
   position: relative;
+  flex-shrink: 0;
 }
 
 .bourbon-main-image {
@@ -74,15 +87,16 @@
 /* Content Section */
 .bourbon-content-section {
   width: 100%;
-  background-color: #000000;
+  background-color: #201F1E;
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  padding: 24px 32px;
-  padding-bottom: 24px;
+  gap: 24px;
+  padding: 24px;
+  padding-bottom: calc(24px + env(safe-area-inset-bottom));
   box-sizing: border-box;
-  overflow-y: auto;
+  flex-shrink: 0;
+  overflow-x: hidden;
 }
 
 .bourbon-header-info {
@@ -101,7 +115,8 @@
 .bourbon-name {
   font-family: "Bitter", serif;
   font-weight: 400;
-  font-size: 30px;
+  font-style: normal;
+  font-size: 24px;
   line-height: 100%;
   letter-spacing: 0%;
   color: #FFFFFF;
@@ -125,7 +140,8 @@
 .bourbon-price {
   font-family: "Bitter", serif;
   font-weight: 400;
-  font-size: 25px;
+  font-style: normal;
+  font-size: 20px;
   line-height: 100%;
   letter-spacing: 0%;
   text-align: right;
@@ -135,7 +151,8 @@
 .bourbon-distillery {
   font-family: "Work Sans", sans-serif;
   font-weight: 400;
-  font-size: 18px;
+  font-style: normal;
+  font-size: 16px;
   line-height: 100%;
   letter-spacing: 0%;
   color: #FFFFFF;
@@ -150,14 +167,20 @@
 
 .bourbon-stats-container {
   width: 100%;
-  display: flex;
+  display: flex !important;
+  flex-direction: row !important;
   gap: 16px;
 }
 
 .bourbon-stat-card {
   flex: 1;
+  min-width: 0;
   height: 80px;
-  border-width: 1px 0px 0px 1px;
+  border-width: 1px;
+  border-top-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 1px;
   border-style: solid;
   border-color: #D4BD85;
   border-radius: 12px;
@@ -196,9 +219,7 @@
   letter-spacing: 0%;
   color: #FFFFFF;
   margin: 0;
-  border-width: 1px 0px 0px 1px;
-  border-style: solid;
-  border-color: #D4BD85;
+  border: none;
   padding: 16px;
   box-sizing: border-box;
   width: 100%;
@@ -206,7 +227,8 @@
 
 /* Action Buttons */
 .bourbon-action-buttons {
-  display: flex;
+  display: flex !important;
+  flex-direction: row !important;
   gap: 16px;
   width: 100%;
 }
@@ -277,7 +299,7 @@
 .add-comment-input {
   width: 100%;
   padding: 14px 16px;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: #292929;
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -300,7 +322,8 @@
 }
 
 .review-buttons {
-  display: flex;
+  display: flex !important;
+  flex-direction: row !important;
   gap: 12px;
   width: 100%;
 }
@@ -336,10 +359,10 @@
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-.community-review-button svg,
-.private-review-button svg {
+.review-icon {
   width: 20px;
   height: 20px;
+  object-fit: contain;
 }
 
 /* Comments List */
@@ -352,9 +375,13 @@
 
 .comment-item {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
   padding: 16px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .comment-item:first-child {
@@ -365,6 +392,26 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.comment-actions {
+  display: none;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+  flex-shrink: 0;
+  margin-left: 16px;
+  padding-top: 0;
+  white-space: nowrap;
+}
+
+
+.comment-action-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 
 .comment-author {
@@ -381,18 +428,14 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* Home Indicator */
 .home-indicator {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  padding: 12px 0 16px;
-  background-color: #000000;
-  z-index: 100;
   display: flex;
   justify-content: center;
+  padding: 8px 0 calc(16px + env(safe-area-inset-bottom));
+  background-color: #201F1E;
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
 }
 
 .indicator-bar {
@@ -402,336 +445,62 @@
   border-radius: 3px;
 }
 
-/* iPad Layout (768px to 1024px) */
-@media (min-width: 768px) and (max-width: 1024px) {
+/* Mobile Layout (max-width: 430px) */
+@media (max-width: 430px) {
   .bourbon-description-page {
-    width: 100%;
-    max-width: 834px;
+    width: 100vw;
+    min-height: 100vh;
     height: 100vh;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .bourbon-description-header {
-    width: 100%;
-    max-width: 834px;
-    padding: 16px 32px;
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    box-sizing: border-box;
-  }
-
-  .bourbon-description-main {
-    width: 100%;
-    max-width: 834px;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-    margin: 0 auto;
   }
 
   .bourbon-image-section {
     width: 100%;
-    max-width: 834px;
-    height: 738px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
+    height: 498px;
+    flex-shrink: 0;
   }
 
   .bourbon-main-image {
     width: 100%;
-    max-width: 834px;
-    height: 738px;
+    height: 498px;
     object-fit: cover;
-  }
-
-  .bourbon-content-section {
-    width: 100%;
-    max-width: 834px;
-    min-height: 938px;
-    position: absolute;
-    top: 715px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 24px 32px;
-    gap: 32px;
-    border-top-left-radius: 24px;
-    border-top-right-radius: 24px;
-    box-sizing: border-box;
-    overflow-y: auto;
-    overflow-x: hidden;
-    max-height: calc(100vh - 715px);
-  }
-
-  .bourbon-header-info {
-    width: 100%;
-    max-width: 771px;
-  }
-
-  .bourbon-divider {
-    width: 100%;
-    max-width: 771px;
-  }
-
-  .bourbon-stats-container {
-    width: 100%;
-    max-width: 771px;
-    height: 80px;
-    gap: 16px;
-  }
-
-  .bourbon-stat-card {
-    flex: 1;
-    min-width: 0;
-    height: 80px;
-    border-width: 1px 0px 0px 1px;
-    border-style: solid;
-    border-color: #D4BD85;
-    border-radius: 12px;
-  }
-
-  .bourbon-description-text {
-    width: 100%;
-    max-width: 771px;
-    border-width: 1px 0px 0px 1px;
-    border-style: solid;
-    border-color: #D4BD85;
-    padding: 16px;
-    box-sizing: border-box;
-  }
-
-  .bourbon-action-buttons {
-    width: 100%;
-    max-width: 771px;
-  }
-
-  .community-notes-section {
-    width: 100%;
-    max-width: 771px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .community-notes-heading {
-    font-family: "Bitter", serif;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 100%;
-    letter-spacing: 0%;
-    color: #FFFFFF;
-    margin: 0;
-  }
-
-  .add-comment-input {
-    width: 100%;
-    max-width: 771px;
-    padding: 14px 16px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-    box-sizing: border-box;
-  }
-
-  .add-comment-text {
-    font-family: "Work Sans", sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.7);
-  }
-
-  .add-comment-input svg {
-    width: 20px;
-    height: 20px;
-    color: white;
-  }
-
-  .review-buttons {
-    width: 100%;
-    max-width: 771px;
-    display: flex;
-    gap: 12px;
-  }
-
-  .community-review-button,
-  .private-review-button {
-    flex: 1;
-    padding: 14px 16px;
-    background-color: transparent;
-    border-radius: 12px;
-    color: white;
-    font-family: "Work Sans", sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-  }
-
-  .community-review-button {
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  .private-review-button {
-    border: 1px solid #AA9456;
-  }
-
-  .comments-list {
-    width: 100%;
-    max-width: 771px;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
   }
 
   .comment-item {
     display: flex;
-    flex-direction: column;
-    padding: 16px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: nowrap;
   }
 
-  .comment-item:first-child {
-    border-top: none;
+  .comment-content {
+    flex: 1;
+    min-width: 0;
   }
 
-  .comment-author {
-    font-family: "Work Sans", sans-serif;
-    font-weight: 600;
-    font-size: 16px;
-    color: #FFFFFF;
+  .comment-item {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    flex-wrap: nowrap !important;
   }
 
-  .comment-text {
-    font-family: "Work Sans", sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.7);
+  .comment-content {
+    flex: 1;
+    min-width: 0;
+    max-width: calc(100% - 60px);
   }
 
-  .home-indicator {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    max-width: 834px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 100;
-  }
-}
-
-/* Mobile Layout (max-width: 430px) */
-@media (max-width: 430px) {
-  .bourbon-description-page {
-    width: 100%;
-    min-height: 100vh;
-    position: relative;
-    overflow-x: hidden;
-  }
-
-  .bourbon-description-header {
-    padding: 16px;
-  }
-
-  .bourbon-description-main {
-    width: 100%;
-    position: relative;
-  }
-
-  .bourbon-image-section {
-    width: 100%;
-    max-width: 430px;
-    height: 498px;
-    position: relative;
-    margin: 0 auto;
-  }
-
-  .bourbon-main-image {
-    width: 100%;
-    max-width: 430px;
-    height: 498px;
-    object-fit: cover;
-  }
-
-  .bourbon-content-section {
-    width: 100%;
-    max-width: 430px;
-    min-height: 867px;
-    position: absolute;
-    top: 436px;
-    left: 50%;
-    transform: translateX(-50%);
-    gap: 24px;
-    padding: 24px;
-    border-top-left-radius: 24px;
-    border-top-right-radius: 24px;
-    box-sizing: border-box;
-    overflow-y: auto;
-    max-height: calc(100vh - 436px);
-  }
-
-  .bourbon-stats-container {
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .bourbon-stat-card {
-    width: 100%;
-    height: 80px;
-    border-width: 1px 0px 0px 1px;
-    border-style: solid;
-    border-color: #D4BD85;
-    border-radius: 12px;
-  }
-
-  .bourbon-action-buttons {
-    flex-direction: column;
+  .comment-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
     gap: 12px;
-  }
-
-  .tasted-button,
-  .back-action-button {
-    width: 100%;
-  }
-
-  .review-buttons {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .community-review-button,
-  .private-review-button {
-    width: 100%;
-  }
-
-  .home-indicator {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-  }
-}
-
-/* Desktop - >= 1024px */
-@media (min-width: 1025px) {
-  .bourbon-description-page {
-    max-width: 834px;
-    margin: 0 auto;
+    flex-shrink: 0;
+    margin-left: 16px;
+    padding-top: 0;
+    width: auto;
   }
 }
 
@@ -744,9 +513,111 @@
   .bourbon-main-image {
     height: 450px;
   }
+}
+
+/* Hide comment actions on iPad/Desktop */
+@media (min-width: 768px) {
+  .comment-actions {
+    display: none;
+  }
+}
+
+/* iPad and Desktop - EXACT SAME AS MOBILE */
+@media (min-width: 768px) {
+  .bourbon-description-page {
+    width: 100vw;
+    min-height: 100vh;
+    height: 100vh;
+    background-color: #201F1E;
+    overflow: hidden;
+  }
+
+  .bourbon-description-header {
+    padding: 16px;
+    background-color: transparent;
+    flex-shrink: 0;
+  }
+
+  .bourbon-description-main {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .bourbon-image-section {
+    width: 100%;
+    height: 498px;
+    flex-shrink: 0;
+  }
+
+  .bourbon-main-image {
+    width: 100%;
+    height: 498px;
+    object-fit: cover;
+  }
 
   .bourbon-content-section {
-    top: 400px;
-    max-height: calc(100vh - 400px);
+    width: 100%;
+    max-width: 100%;
+    background-color: #201F1E;
+    padding: 24px;
+    padding-bottom: calc(24px + env(safe-area-inset-bottom));
+    gap: 24px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .bourbon-header-info,
+  .bourbon-divider,
+  .bourbon-stats-container,
+  .bourbon-description-text,
+  .bourbon-action-buttons,
+  .community-notes-section {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .bourbon-stats-container {
+    flex-direction: row;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .bourbon-stat-card {
+    flex: 1;
+    min-width: 0;
+    border-width: 1px;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 1px;
+    border-style: solid;
+    border-color: #D4BD85;
+  }
+
+  .bourbon-action-buttons {
+    flex-direction: row;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .tasted-button,
+  .back-action-button {
+    flex: 1;
+  }
+
+  .review-buttons {
+    flex-direction: row;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .community-review-button,
+  .private-review-button {
+    flex: 1;
   }
 }

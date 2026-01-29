@@ -138,8 +138,9 @@ function Pamphlet() {
                 <button className="dropdown-item" onClick={() => handleDropdownItemClick('mashbill', 'IN- style Rye')}>IN- style Rye</button>
                 <button className="dropdown-item" onClick={() => handleDropdownItemClick('mashbill', 'American Single Malt')}>American Single Malt</button>
               </div>
-            )}
+            )}  
           </div>
+
           <div className="filter-btn-wrapper">
             <button 
               className={`filter-btn ${openDropdown === 'distillery' ? 'active' : ''}`}

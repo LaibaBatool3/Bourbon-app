@@ -7,6 +7,8 @@
   position: relative;
   overflow-x: hidden;
   overflow-y: hidden;
+  max-width: 398px;
+  margin: 0 auto;
 }
 
 .welcome-header {
@@ -17,8 +19,8 @@
   width: 100%;
   box-sizing: border-box;
   background-color: #000000;
-  position: sticky;
-  top: 0;
+  position: relative;
+  flex-shrink: 0;
   z-index: 10;
 }
 
@@ -49,12 +51,13 @@
   font-family: "Bitter", serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 25px;
+  font-size: 20px;
   line-height: 100%;
   letter-spacing: 0%;
   margin: 0;
   text-align: center;
   flex: 1;
+  white-space: nowrap;
 }
 
 .header-spacer {
@@ -69,9 +72,9 @@
   align-items: center;
   padding: 0;
   box-sizing: border-box;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
   width: 100%;
+  min-height: 0;
 }
 
 .hero {
@@ -82,12 +85,17 @@
   background: #000000;
   margin: 0;
   position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-image {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
   object-position: center;
 }
@@ -95,12 +103,12 @@
 .bottom-card {
   width: 100%;
   max-width: 100%;
-  margin-top: -120px;
+  margin-top: -100px;
   border-radius: 24px 24px 0 0;
-  background: rgba(28, 28, 28, 0.95);
+  background: #1C1C1C;
   border: none;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 32px 20px 24px;
+  padding: 24px 20px 20px;
   box-sizing: border-box;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -108,7 +116,8 @@
   z-index: 5;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
+  flex-shrink: 0;
 }
 
 .card-title {
@@ -129,7 +138,7 @@
   line-height: 1.5;
   letter-spacing: 0%;
   margin: 0;
-  text-align: center;
+  text-align: left;
 }
 
 .continue-button {
@@ -161,6 +170,7 @@
   background-color: #000000;
   position: relative;
   z-index: 1;
+  flex-shrink: 0;
 }
 
 .indicator-bar {
@@ -176,6 +186,8 @@
     height: 100vh;
     overflow: hidden;
     position: relative;
+    max-width: 100%;
+    margin: 0;
   }
 
   .welcome-header {
@@ -190,10 +202,11 @@
     font-family: "Bitter", serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 25px;
+    font-size: 20px;
     line-height: 100%;
     letter-spacing: 0%;
     color: white;
+    white-space: nowrap;
   }
 
   .welcome-main {
@@ -203,8 +216,7 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden;
     min-height: 0;
   }
 
@@ -214,12 +226,16 @@
     border-radius: 0;
     overflow: hidden;
     margin: 0;
-    flex-shrink: 0;
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .hero-image {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
     object-fit: cover;
     object-position: center;
@@ -228,13 +244,18 @@
   .bottom-card {
     width: 100%;
     margin-top: -100px;
-    padding: 32px 20px 24px;
+    padding: 24px 20px 20px;
     border-radius: 24px 24px 0 0;
+    background: #1C1C1C;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     position: relative;
     z-index: 5;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
     flex-shrink: 0;
   }
 
@@ -257,7 +278,7 @@
     font-size: 15px;
     line-height: 100%;
     letter-spacing: 0%;
-    text-align: center;
+    text-align: left;
     color: white;
     margin: 0;
   }
@@ -272,7 +293,7 @@
   }
 
   .home-indicator {
-    padding: 12px 0 16px;
+    padding: 8px 0 12px;
     background-color: #000000;
     position: relative;
     z-index: 1;
@@ -287,7 +308,8 @@
   }
 
   .welcome-title {
-    font-size: 22px;
+    font-size: 20px;
+    white-space: nowrap;
   }
 
   .bottom-card {
@@ -303,6 +325,7 @@
 
   .card-body {
     font-size: 14px;
+    text-align: left;
   }
 
   .continue-button {
@@ -318,7 +341,8 @@
 /* iPad Responsive (768px to 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
   .welcome-page {
-    height: 100vh;
+    width: 834px;
+    height: 1194px;
     max-width: 834px;
     margin: 0 auto;
     position: relative;
@@ -326,19 +350,14 @@
   }
 
   .welcome-header {
-    width: 770px;
-    height: 48px;
-    padding: 4px 8px;
-    position: absolute;
-    top: 48px;
-    left: 32px;
-    border-radius: 8px;
+    padding: 16px 20px;
+    position: relative;
+    width: 100%;
+    background-color: #000000;
+    flex-shrink: 0;
+    border-radius: 0;
     justify-content: space-between;
     box-sizing: border-box;
-    background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    z-index: 10;
   }
 
   .welcome-title {
@@ -349,62 +368,57 @@
     line-height: 100%;
     letter-spacing: 0%;
     color: white;
+    white-space: nowrap;
   }
 
   .welcome-main {
     padding: 0;
     position: relative;
     width: 100%;
-    max-width: 834px;
-    margin: 0 auto;
-    height: 100vh;
+    height: calc(1194px - 56px); /* Subtract header height */
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
+    min-height: 0;
   }
 
   .hero {
-    width: 834px;
-    height: 751px;
-    position: absolute;
-    top: 120px;
-    left: 0;
+    width: 100%;
+    position: relative;
     border-radius: 0;
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
     overflow: hidden;
-    background: #000000;
     margin: 0;
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .hero-image {
     width: 100%;
     height: 100%;
+    display: block;
     object-fit: cover;
     object-position: center;
-    display: block;
   }
 
   .bottom-card {
-    width: 834px;
-    min-height: 347px;
-    position: absolute;
-    top: 847px;
-    left: 0;
-    margin: 0;
-    border-radius: 0;
-    border-top-left-radius: 24px;
-    border-top-right-radius: 24px;
-    background: rgba(28, 28, 28, 0.95);
-    border: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 32px 24px;
-    box-sizing: border-box;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    width: 100%;
+    margin-top: -100px;
+    padding: 24px 24px 20px;
+    border-radius: 24px 24px 0 0;
+    position: relative;
+    z-index: 5;
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    align-items: center;
-    overflow: visible;
+    gap: 20px;
+    flex-shrink: 0;
+    background: #1C1C1C;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
   }
 
   .card-title {
@@ -428,32 +442,29 @@
     letter-spacing: 0%;
     color: white;
     margin: 0;
-    text-align: justify;
-    flex: 1;
+    text-align: left;
   }
 
   .continue-button {
-    width: 572px;
+    width: 100%;
+    max-width: 572px;
     height: 56px;
     padding: 12px;
     border-radius: 16px;
     font-family: "Work Sans", sans-serif;
     font-size: 16px;
     font-weight: 600;
-    margin: 0;
+    margin: 0 auto;
     box-sizing: border-box;
     flex-shrink: 0;
-    visibility: visible;
-    display: block;
   }
 
   .home-indicator {
-    position: absolute;
-    top: 1194px;
-    width: 100%;
-    padding: 12px 0 16px;
+    padding: 8px 0 12px;
     background-color: #000000;
+    position: relative;
     z-index: 1;
+    flex-shrink: 0;
   }
 }
 
@@ -462,26 +473,30 @@
   .welcome-page {
     height: 100vh;
     overflow: hidden;
+    max-width: 398px;
+    margin: 0 auto;
   }
 
   .welcome-header {
-    padding: 16px 24px;
+    padding: 16px 20px;
+    flex-shrink: 0;
   }
 
   .welcome-main {
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden;
+    flex: 1;
+    min-height: 0;
   }
 
   .bottom-card {
-    padding: 32px 24px 24px;
+    padding: 32px 20px 24px;
   }
 }
 
 /* Desktop - >= 1024px */
 @media (min-width: 1025px) {
   .welcome-page {
-    max-width: 834px;
+    max-width: 398px;
     margin: 0 auto;
     height: 100vh;
     overflow: hidden;

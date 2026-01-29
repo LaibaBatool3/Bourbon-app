@@ -34,7 +34,6 @@ function SingleBarrel() {
 
   const handleModalClose = () => {
     setShowModal(false)
-    // Navigate to bourbon description page after modal closes
     navigate("/bourbon-description")
   }
 
@@ -113,7 +112,6 @@ function SingleBarrel() {
                     </div>
                     <a href="#" className="bourbon-profile-link" onClick={(e) => {
                       e.preventDefault()
-                      // Navigate to bourbon description based on bourbon name
                       if (bourbon.name === "Blanton's") {
                         navigate("/blantons-description")
                       } else {
@@ -135,9 +133,11 @@ function SingleBarrel() {
                           className="checkmark"
                           viewBox="0 0 24 24"
                           fill="none"
+                        
                           stroke="currentColor"
                           strokeWidth="3"
                         >
+                        
                           <path d="M20 6L9 17l-5-5" />
                         </svg>
                       )}
@@ -148,7 +148,7 @@ function SingleBarrel() {
             </div>
           </div>
           <button className="confirm-button" onClick={handleConfirm}>
-            CONFIRM SELECTION
+            Confirm
           </button>
         </div>
       </main>

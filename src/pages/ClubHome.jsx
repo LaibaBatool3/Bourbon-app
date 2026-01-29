@@ -91,6 +91,7 @@ function ClubHome() {
           </div>
         </section>
 
+      
         {/* What We Offer Section */}
         <section className="offers-section">
           <h2 className="section-title">What we offer</h2>
@@ -122,6 +123,7 @@ function ClubHome() {
               </p>
             </div>
           </div>
+        
 
           <div className="offer-item">
             <div className="offer-image-container">

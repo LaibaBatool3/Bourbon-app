@@ -1,9 +1,15 @@
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import "./BourbonDescription.css"
 import bourbonImage from "../assets/bourbon.png"
+import flagIcon from "../assets/flag.png"
+import pencilIcon from "../assets/pencil (2).png"
+import communityReviewIcon from "../assets/community-review.png"
+import privateReviewIcon from "../assets/private-review.png"
 
 function BourbonDescription() {
   const navigate = useNavigate()
+  const [isTasted, setIsTasted] = useState(false)
 
   return (
     <div className="bourbon-description-page">
@@ -86,8 +92,19 @@ function BourbonDescription() {
 
           {/* Action Buttons */}
           <div className="bourbon-action-buttons">
-            <button className="tasted-button">
-              Taste
+            <button 
+              className={`tasted-button ${isTasted ? 'tasted' : ''}`}
+              onClick={() => setIsTasted(!isTasted)}
+            >
+              {isTasted ? (
+                <>
+                  Tasted <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                </>
+              ) : (
+                'Taste'
+              )}
             </button>
             <button className="back-action-button" onClick={() => navigate(-1)}>
               Back
@@ -109,18 +126,11 @@ function BourbonDescription() {
             {/* Review Buttons */}
             <div className="review-buttons">
               <button className="community-review-button">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                  <circle cx="9" cy="7" r="4" />
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-                </svg>
+                <img src={communityReviewIcon} alt="Community Review" className="review-icon" />
                 Community Review
               </button>
               <button className="private-review-button">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                  <circle cx="12" cy="7" r="4" />
-                </svg>
+                <img src={privateReviewIcon} alt="Private Review" className="review-icon" />
                 Private review
               </button>
             </div>
@@ -132,6 +142,10 @@ function BourbonDescription() {
                   <div className="comment-content">
                     <div className="comment-author">Kyle</div>
                     <div className="comment-text">Fantastic pour, my new favorite</div>
+                  </div>
+                  <div className="comment-actions">
+                    <img src={flagIcon} alt="Flag" className="comment-action-icon" />
+                    <img src={pencilIcon} alt="Edit" className="comment-action-icon" />
                   </div>
                 </div>
               ))}

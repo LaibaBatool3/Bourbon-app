@@ -44,10 +44,12 @@ function Welcome() {
           <h2 className="card-title">Bourbon Club</h2>
 
           <p className="card-body">
-            The Bourbon Club is the most exclusive way to try, taste and fall in
-            love with bourbon, from specialty tastings to VIP cocktails with
-            master distillers, the Bourbon Club is at the heart of the tail and
-            our undying dedication to the great American Spirit!
+            The Bourbon Club is the most exclusive way
+            to try, taste and fall in love with bourbon,
+            from specialty tastings to VIP cocktails with
+            master distillers, the Bourbon Club is at the
+            heart of the tail and our undying dedication
+            to the great American Spirit!
           </p>
 
           <button 
